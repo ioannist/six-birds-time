@@ -1,0 +1,18 @@
+relation,identifier,scheme,resource_type,bibkey,title
+Cites,10.5281/zenodo.18365949,DOI,other,sixbirds_foundations,Six Birds: Foundations of Emergence Calculus
+Cites,10.5281/zenodo.18402004,DOI,other,sixbirds_math,To Count a Stone with Six Birds: A Mathematics is A Theory
+Cites,10.1103/PhysicsPhysiqueFizika.1.195,DOI,publication-article,bell_1964,On the Einstein Podolsky Rosen paradox
+Cites,9781107002173,ISBN,publication-book,nielsen_chuang,Quantum Computation and Quantum Information
+Cites,10.1002/andp.19053221004,DOI,publication-article,einstein_1905,Zur Elektrodynamik bewegter K{"o}rper
+Cites,978-0-521-63396-3,ISBN,publication-book,Norris1997,Markov Chains
+Cites,10.1088/0034-4885/75/12/126001,DOI,publication-article,Seifert2012,Stochastic thermodynamics, fluctuation theorems and molecular machines
+Cites,978-0-471-24195-9,ISBN,publication-book,CoverThomas2006,Elements of Information Theory
+Cites,10.1209/0295-5075/77/58001,DOI,publication-article,SinitsynNemenman2007,The Berry phase and the pump flux in stochastic chemical kinetics
+Cites,10.1103/RevModPhys.86.419,DOI,publication-article,brunner_2014_bell_nonlocality,Bell nonlocality
+Cites,10.1214/aoms/1177729694,DOI,publication-article,KullbackLeibler1951,On Information and Sufficiency
+Cites,10.1103/RevModPhys.48.571,DOI,publication-article,Schnakenberg1976,Network theory of microscopic and macroscopic behavior of master equation systems
+Cites,10.1103/PhysRevE.90.042110,DOI,publication-article,MurashitaFunoUeda2014,Nonequilibrium equalities in absolutely irreversible processes
+Cites,10.1007/s10955-004-3455-1,DOI,publication-article,Gaspard2004,Time-Reversed Dynamical Entropy and Irreversibility in Markovian Random Processes
+Cites,10.1098/rspa.1984.0023,DOI,publication-article,Berry1984,Quantal phase factors accompanying adiabatic changes
+Cites,10.1002/j.1538-7305.1949.tb00928.x,DOI,publication-article,Shannon1949,Communication Theory of Secrecy Systems
+Cites,10.1007/BF02058098,DOI,publication-article,PopescuRohrlich1994,Quantum nonlocality as an axiom

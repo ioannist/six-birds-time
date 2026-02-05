@@ -1,0 +1,10 @@
+name = "TimeWorld"
+version = "0.1.0"
+defaultTargets = ["timeworld"]
+
+[[lean_lib]]
+name = "TimeWorld"
+
+[[lean_exe]]
+name = "timeworld"
+root = "Main"

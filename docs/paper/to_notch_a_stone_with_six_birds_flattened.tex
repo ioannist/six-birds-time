@@ -1,0 +1,706 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage[margin=1in]{geometry}
+\usepackage{float}
+\usepackage[section]{placeins} \usepackage{caption} \usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!70!black,
+  citecolor=green!50!black,
+  urlcolor=blue!80!black,
+  bookmarksnumbered=true,
+  pdfauthor={Ioannis Tsiokos},
+  pdftitle={To Notch a Stone with Six Birds: Time as a Theory Artifact of Order, Measure, and Arrow}
+}
+\usepackage{cleveref}
+\crefname{section}{section}{sections}
+\crefname{table}{table}{tables}
+\crefname{figure}{figure}{figures}
+\usepackage{natbib}
+
+\graphicspath{{figures/}}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\raggedbottom
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+
+\newcommand{\SBT}{\textsc{SBT}}
+\newcommand{\Pone}{\textbf{P1}}
+\newcommand{\Ptwo}{\textbf{P2}}
+\newcommand{\Pthree}{\textbf{P3}}
+\newcommand{\Pfour}{\textbf{P4}}
+\newcommand{\Pfive}{\textbf{P5}}
+\newcommand{\Psix}{\textbf{P6}}
+
+\fancypagestyle{firstpage}{\fancyhf{}
+  \fancyfoot[C]{\scriptsize DOI: \href{https://doi.org/10.5281/zenodo.18495363}{10.5281/zenodo.18495363} \quad \textcopyright\ 2026 Automorph Inc.}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\title{To Notch a Stone with Six Birds:\\Time as a Theory Artifact of Order, Measure, and Arrow}
+\author{Ioannis Tsiokos\\\texttt{ioannis@automorph.io}}
+\date{5 February 2026}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{firstpage}
+
+\begin{abstract}
+Time is often treated as a primitive background parameter, and empirical discussions frequently conflate three distinct notions---event ordering, clock measurement, and irreversible directionality---making it difficult to determine when a layer \emph{has time} versus when time is an artifact of description. Building on Six Birds Theory (SBT) \citep{sixbirds_foundations}, we propose a layer-relative account in which time is a \emph{closure artifact} assembled from stable succession (order), staged repeatable carriers (ticks), and irreversible bookkeeping (arrow). We distinguish \emph{causation-time} within a fixed closure from \emph{enablement-time}, where the closure itself is rewritten. We instantiate this account in a finite-state Markov laboratory ($Z=X\times\Phi\times R$) and operationalize it through an audit-and-control workflow: calibrated null regimes, matched controls, and auto-generated evidence tables from reproducible artifacts.
+
+We obtain four controlled separations: (i) in a nearly reversible null regime, arrow proxies are $\approx 0$, whereas in a record-coupled driven regime they become decisively nonzero (with absolute irreversibility signaled by $\mathrm{EP}=\infty$); (ii) under consistent estimation, coarse-graining reduces path-space asymmetry (micro $\ge$ macro), preventing ``fake arrows''; (iii) increasing maintenance budget reduces clock drift and failure, while progress metrics detect stall regimes that would otherwise appear stable; and (iv) closure-defect thresholds trigger theory extension only in an enablement regime (not in a no-birth control), and protocol loops exhibit nonzero holonomy in a noncommuting regime but $\approx 0$ under a commuting control, obstructing a global time potential. These results provide a reproducible method for separating arrows, clocks, constraints, and protocol effects, and for clarifying when ``instant updates'' reflect constraints and records rather than causal channels. We do not derive physical spacetime here; our conclusions rely on audited proxies in a minimal laboratory together with lightweight mechanized structural lemmas.
+ \end{abstract}
+\section{Introduction}
+\label{sec:introduction}
+
+A stone has no time. It has mass, texture, and shape, but not ``before'' and ``after.'' Yet a stone can be made to \emph{carry} time: notch it once for each day, once for each completed task, once for each passage of a season. The stone becomes a clock only when the notches persist, when they can be counted and compared, and when the difference between ``notched'' and ``unnotched'' cannot be erased without cost. In this paper we use the stone as a metaphor for a broader claim: \emph{in the SBT lens, time is not assumed as a primitive background coordinate}; time is what you get when a layer of description can stabilize (i) an ordering of events, (ii) a measure of change, and (iii) an irreversible record that makes ``before vs.\ after'' matter.
+This is a methodological stance about layers and closures, not a denial that physical theories often parameterize dynamics with a time variable.
+
+Our framework is Six Birds Theory (SBT) \citep{sixbirds_foundations}, a small set of primitives for reasoning about emergence as the construction of closures. SBT treats layers as built, not given: each layer comes with objects (what is packaged as state), dynamics (how state updates), feasibility (what moves are allowed), staging (what persists long enough to matter), and accounting (what budgets and monotones govern maintainability). The six primitives---operator rewriting, constraints, protocol holonomy, staging, packaging, and accounting---jointly produce stable higher-level structure. A core SBT prediction is that time should be \emph{plural}: different closures induce different notions of ``next,'' different clocks, and different arrows, and there need not exist a single global time that coherently translates between them.
+
+The aim of this paper is to provide a practical, auditable SBT account of time. We do not attempt to derive physical spacetime from first principles. Instead, we ask an operational question: \emph{when does a layer have time at all, and how can we tell?} SBT suggests that ``having time'' is not a philosophical stance but an engineering fact: a layer has time if it supports stable ordering, stable ticking, and a usable arrow; it lacks time if any of these fail (e.g., clocks drift, records are not maintainable, or closure protocols conflict). This stance reframes familiar puzzles. For example, the tension between relativistic causal cones and quantum correlations often arises from conflating \emph{constraints on joint feasibility} with \emph{causal channels}. In SBT terms, many ``instantaneous influences'' are better understood as constraint-mediated correlations combined with record-making and protocol-dependent conditioning, rather than superluminal causation.
+
+\paragraph{Contributions.}
+This paper makes five contributions.
+
+\begin{itemize}
+  \item We provide a lay-to-technical SBT definition of time as a closure artifact: \emph{order + measure + arrow}, and we separate \emph{causation-time} (within-layer succession) from \emph{enablement-time} (between-layer closure birth).
+  \item We present a small finite-state laboratory that supports exact and empirical audits of time-like structure: entropy production, path-reversal KL under coarse-graining (a ``no fake arrows'' sanity check), clock viability metrics with explicit budget and maintenance costs, and constraint-carved reachability cones.
+  \item We demonstrate enablement-time as forced theory extension: a closure defect in a too-coarse lens triggers a rewrite that materially improves predictability, contrasted with a ``no birth'' control regime.
+  \item We formulate and quantify a \emph{no global time} obstruction via protocol holonomy: if time translation around a cycle has nonzero holonomy, no single global time potential can exist. We provide both a measured example and a commuting control.
+  \item We clarify the ``constraint vs.\ channel'' distinction with a no-signalling toy: sharp conditional updates can arise from joint feasibility constraints without enabling superluminal signalling. We include lightweight mechanized lemmas as structural anchors.
+\end{itemize}
+
+\paragraph{Code availability.}
+The repository for this paper is available at:
+\begin{itemize}[noitemsep,topsep=2pt]
+\item \url{https://github.com/ioannist/six-birds-time}
+\end{itemize}
+
+\paragraph{Roadmap.}
+We begin by briefly recapping the six SBT primitives and how they map onto time-like structure. We then define time as a layer-relative closure artifact and introduce the causation-time vs.\ enablement-time distinction. Next, we describe the toy universe and the audit suite used throughout the paper. We present results on arrows and coarse-graining, on clock stabilization under budget constraints (including anti-stall progress metrics), on enablement as theory rewrite, and on feasibility constraints as causal-cone carving that can both support and destroy timekeeping. We then state and demonstrate the no-global-time holonomy obstruction and connect it to a concrete ``physics dilemma'' narrative via no-signalling constraint boxes. We close with implications, limitations, and pointers to the mechanized anchors and reproducibility artifacts.
+ \section{Six Birds Theory recap: primitives and closures}
+\label{sec:six-birds-recap}
+
+This paper builds on \emph{Six Birds Theory} (SBT) \citep{sixbirds_foundations}, which proposes six interacting primitives for describing emergence as the construction of stable \emph{closures}. A ``layer'' is not assumed a priori; rather, a layer is a package of (i) what counts as state and object, (ii) what counts as an update, (iii) what moves are feasible, and (iv) what budgets and records make distinctions persist. The six primitives are the minimal operations that repeatedly appear when such layers are formed, stabilized, and translated.
+
+\paragraph{P1: Operator rewriting.}
+When a system is described at a different scale or with different packaged state, the effective update rule generally changes. Coarse-graining, memory, and renormalization rewrite the operator that advances state. P1 captures the principle that ``the law is not invariant under closure.''
+
+\paragraph{P2: Constraints (feasibility carving).}
+A layer comes with a feasible region or move set: what transitions are allowed and what can influence what. In physical language, this includes locality, conservation laws, and finite propagation constraints; in computational and biological language, it includes resource limits, wiring, and protocol admissibility. P2 asserts that causation is always conditional on feasibility.
+
+\paragraph{P3: Protocol holonomy.}
+Different ways of evolving, coarse-graining, and translating between descriptions need not commute. When two closure protocols yield different results around a loop, there is an obstruction to ``flattening'' the description into a single globally consistent perspective. P3 states that layers can exhibit path dependence: the result depends on the protocol used to transport state and records.
+
+\paragraph{P4: Staging.}
+For higher-level objects to exist and for records to be usable, some degrees of freedom must persist while others vary. Staging is timescale separation and carrier stabilization: slow variables, barriers, and protected channels that allow memory and ``ticks'' to survive noise. P4 holds that persistence is constructed, not given.
+
+\paragraph{P5: Packaging.}
+Packaging turns micro-variation into macro-objects through many-to-one representation: repeated patterns become ``the same'' object; flows become countable events. Packaging is typically lossy: many micro-histories map to the same macro-state, which introduces irreversibility at the layer unless extra side information is maintained. P5 embodies the principle that objects are quotients.
+
+\paragraph{P6: Accounting.}
+Layers are governed by budgets, ledgers, and audit functionals: maintaining structure costs something, and some quantities behave monotonically unless paid against. Accounting includes dissipation, error correction, and the accumulation of irreversible records. P6 maintains that arrows are made from monotones and that ``undoing'' is constrained by cost.
+
+\medskip
+
+\noindent
+In SBT, these primitives are not independent; they co-produce stable closure. Time, in particular, is not treated as a primitive coordinate but as a closure artifact assembled by these primitives. Table~\ref{tab:birds-to-time} summarizes how each primitive contributes to time-like structure.
+
+\vspace{0.5\baselineskip}
+\begin{table}[t]
+\centering
+\caption{Mapping the six SBT primitives to time-like structure. ``Arrow'' refers to a layer-internal directionality (irreversible bookkeeping); ``ticks'' refers to stable measurement of change; ``order'' refers to a usable before/after relation; ``global time'' refers to a single time coordinate coherent across closures.}
+\label{tab:birds-to-time}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.20\linewidth} >{\raggedright\arraybackslash}p{0.74\linewidth}}
+\toprule
+\textbf{Bird} & \textbf{Role in time (SBT lens)} \\
+\midrule
+P1: Operator rewriting &
+Changes effective rates and laws across closures; different layers induce different ``next'' operators and hence different local times. \\[2pt]
+P2: Constraints &
+Carves feasibility and influence structure (``causal cones''); determines which event orderings are physically/operationally realizable. \\[2pt]
+P3: Protocol holonomy &
+Obstructs a single global time when closure protocols do not commute; yields path-dependent time translation and nonzero holonomy around protocol loops. \\[2pt]
+P4: Staging &
+Provides persistence and timescales; enables stable carriers for records and repeatable processes that can serve as clocks. \\[2pt]
+P5: Packaging &
+Defines what counts as an event/state/tick at the layer; lossy packaging discards micro-history, producing macro-irreversibility unless side information is paid for. \\[2pt]
+P6: Accounting &
+Provides the arrow via ledger monotones (dissipation, spent budget, written records); makes reversal costly and stabilizes clock reliability through maintenance. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent
+Two immediate consequences follow. First, time is \emph{layer-relative}: each closure induces its own successor structure, tick carriers, and arrow variables. Second, a single universal time is \emph{not guaranteed}: when protocol holonomy is nontrivial (P3), ``time translation'' between layers becomes path-dependent and no global time potential exists. The remainder of the paper develops these claims and audits them in a minimal finite-state laboratory.
+ \section{Time as a closure artifact}
+\label{sec:time-as-closure}
+
+SBT suggests a simple reframing: time is not a universal background parameter that must be assumed before a layer exists. Rather, time is what a layer \emph{gets} once closure succeeds. We emphasize scope: this is a claim about what a \emph{closure} must provide for a layer to support usable ``before/after,'' ticking, and an arrow. It is not a claim that coordinate time or proper time is meaningless in physics; rather, it treats ``having time'' as a layer-relative competency that can succeed or fail depending on staging, packaging, accounting, and constraints.
+
+In this section, we provide an SBT definition of time that is deliberately operational: a layer has time to the extent that it supports a stable ordering of events, a stable measure of change (ticks), and an irreversible record mechanism that makes ``before'' and ``after'' matter. We then separate two distinct temporal arrows: causation-time (within-layer) and enablement-time (between-layer).
+
+\subsection{The three ingredients: order, measure, and arrow}
+
+\paragraph{Ordering.}
+A layer supports time-ordering when it provides a stable successor relation for its packaged state. Concretely, if a layer packages a substrate state into a macro-state $y$ and provides an effective update rule (an induced operator) $L$, then the layer can speak about ``next'':
+\begin{equation}
+  y_{t+1} \approx L(y_t),
+  \label{eq:macro-successor}
+\end{equation}
+where $\approx$ allows for stochasticity, coarse-graining error, and feasibility limits. The point is not determinism; rather, the layer must provide a stable enough successor structure that ``what happens next'' is well-defined in the layer's own terms.
+
+\paragraph{Measurement (ticks).}
+Ordering alone is not yet clock time. A clock requires a \emph{repeatable} staged process that the layer can package as ``the same'' tick state. In SBT terms, ticks require (at least) staging (P4) to create persistent carriers, packaging (P5) to define tick equivalence classes, and accounting (P6) to pay for stabilization and error correction. Without P4, there is no carrier stable enough to count; without P5, there is no canonical ``same tick''; without P6, there is no reason the tick process remains reliable under noise and drift.
+
+\paragraph{Arrow (irreversible bookkeeping).}
+A layer has an arrow when it contains (or can define) an accounting variable that behaves as a monotone along typical feasible trajectories. We deliberately state this as an audit condition rather than a metaphysical claim: an arrow exists when there is a function $A$ on the layer's states such that
+\begin{equation}
+  A(y_{t+1}) \gtrsim A(y_t),
+  \label{eq:arrow-monotone}
+\end{equation}
+meaning decreases are either rare (noise-bounded), expensive to sustain, or incompatible with feasibility. The arrow is thus a property of closure under resource and record constraints. In physics, $A$ may be related to dissipation or entropy production; in computation, it may be ``work spent'' or ``log volume''; in cognition, it may be irreversible updates to memory. In all cases, the arrow is an accounting phenomenon (P6) made legible by staging (P4) and sharpened by lossy packaging (P5).
+
+As a structural formalization, a monotone ledger can be viewed as inducing an order-like relation on states compatible with an update; we mechanize this preorder construction in Lean (see \texttt{ledgerPreorder} and \texttt{ledger\_step\_le\_of\_monotone}). Likewise, one can idealize packaging as an idempotent ``normalization'' map that commutes with an update when closure succeeds; we mechanize the corresponding restriction-to-fixed-points fact (see \texttt{restrictToFix}).
+
+\medskip
+\noindent
+Taken together, \emph{time in a layer} is not a single primitive. It is the joint success of (i) a successor structure, (ii) a tick carrier, and (iii) an arrow variable. This is what the stone metaphor points to: without notches that persist (P4), are countable (P5), and cost something to erase (P6), the stone does not carry time.
+
+\subsection{Two arrows: causation-time vs enablement-time}
+
+SBT distinguishes two different senses in which ``things change over time.'' They are often conflated, but they live at different logical levels.
+
+\paragraph{Causation-time (within-layer).}
+Fix a layer: the packaged state space $Y$, the effective dynamics $L$, feasibility constraints $\mathcal{F}$, and accounting/budget conditions $B$. Then causation-time is simply the layer's successor parameter $t$ in Eq.~\eqref{eq:macro-successor}. This is the familiar regime of scientific models: given the variables and laws, we ask what happens next. In this regime, causal influence is constrained by feasibility (P2): causal structure is not merely statistical dependence but dependence compatible with allowed interventions and feasible transitions.
+
+\paragraph{Enablement-time (between layers).}
+Layers themselves can change. A system may enter a regime in which the current closure no longer supports stable ordering, ticks, or arrows---or in which a new closure becomes maintainable, producing new objects and new causal variables. We call this enablement-time: the arrow along which the \emph{theory} (closure) is rewritten. Informally,
+\begin{equation}
+  \mathcal{T}_{t+1} = \mathrm{Birth/Rewrite}(\mathcal{T}_t;\ \text{history}),
+  \label{eq:enablement-rewrite}
+\end{equation}
+where $\mathcal{T}$ denotes the layer package (packaging map, induced dynamics, constraints, staging/records). Enablement is not ``a weak kind of cause'': it changes the space in which causes can be expressed. In a causal model, enablement rewrites the node set; it creates new actors (via packaging), new invariants (via constraints), and new stable carriers (via staging) that then support ordinary within-layer causation.
+
+\paragraph{A diagnostic: does the variable set change?}
+A practical SBT diagnostic: if the same variable set supports a consistent intervention semantics and successor structure, we are in causation-time. If the variable set itself must change for closure to succeed---new macro-variables become necessary, old ones become meaningless, or prediction requires new staged memory---we are observing enablement.
+
+\subsection{Theorem-like claims (informal) that we will audit}
+
+The rest of the paper treats the claims below as \emph{auditable} rather than assumed. We state them informally here and test them in a minimal finite-state laboratory.
+
+\paragraph{Claim 1 (Arrow-of-time from packaging and accounting).}
+Lossy packaging (P5) together with an accounting ledger (P6) generically produces a directional audit variable at the layer: macro-dynamics becomes effectively irreversible unless extra side information is maintained (which itself costs budget).
+
+\paragraph{Claim 2 (No fake arrows under coarse-graining).}
+Coarse-graining can discard information but cannot create irreversibility from nothing. In an audit sense, projected arrow metrics (e.g.\ path-reversal KL) should not exceed the micro arrow when computed consistently. This is a data-processing sanity check for ``arrow'' claims.
+
+\paragraph{Claim 3 (Clock viability is paid).}
+Reliable ticks require staged carriers and maintenance. As noise increases, clocks drift and fail unless stabilized by spending budget (P6); and ``apparent stability'' can be illusory if the protocol stalls rather than ticks, hence viability must include progress metrics.
+
+\paragraph{Claim 4 (No global time under protocol holonomy).}
+When closure protocols do not commute (P3), there need not exist a single global time coordinate consistent with all protocol translations. Time translation becomes path-dependent, and nonzero holonomy around a loop obstructs a global potential. We will demonstrate this quantitatively and provide a mechanized structural lemma.
+
+\medskip
+\noindent
+To make these claims concrete, we now introduce a toy universe in which the six primitives can be exercised explicitly and the above properties can be audited numerically (and, in small structural form, mechanized).
+ \section{Methods: a finite-state laboratory and audit suite}
+\label{sec:methods}
+
+To keep the six primitives auditable, we use a deliberately small laboratory: a finite-state Markov universe in which closure choices, feasibility constraints, records, and protocol translations can all be made explicit. The goal is not physical realism but operational clarity: we can compute or estimate time-like structure (arrows, ticks, ordering, and obstructions to global time) and observe how it changes under packaging, staging, accounting, and constraints.
+
+\subsection{Toy universe: a Markov world with phase and ledger}
+
+Our shared state space is
+\begin{equation}
+  Z = X \times \Phi \times R,
+  \label{eq:toy-world}
+\end{equation}
+where:
+(i) $X$ is a small ``environment'' variable (finite, typically $|X|\in\{2,3,4\}$),
+(ii) $\Phi$ is a cyclic phase variable (a proto-clock, typically $|\Phi|=8$),
+and (iii) $R$ is a finite ledger (a bounded counter, typically $|R|\in\{1,8,16\}$).
+The microdynamics is a Markov chain with transition matrix $P$ over $Z$ \citep{Norris1997}. We provide several control parameters that allow us to introduce or remove time-like structure:
+a phase drive that biases $\Phi$ to advance, phase noise that causes slips, record coupling that increments $R$ in response to events, optional bounded backsliding, and optional constraint masks that gate transitions (P2).
+
+The important feature is that $R$ plays the role of a layer-internal accounting variable (P6): it can represent spent budget, written records, wear, or any monotone-ish ledger. $\Phi$ plays the role of a staged protocol carrier (P4): it can behave like a clock only if it is stable enough and if its progress is not an artifact of stalling.
+
+\subsection{Audit 1: entropy production as an arrow proxy}
+
+For a finite Markov chain with stationary distribution $\pi$, a standard steady-state time-asymmetry statistic is entropy production \citep{Schnakenberg1976,Seifert2012}:
+\begin{equation}
+  \mathrm{EP}(P,\pi) \;=\; \sum_{i,j} \pi_i\,P_{ij}\,\log\frac{\pi_i P_{ij}}{\pi_j P_{ji}},
+  \label{eq:ep}
+\end{equation}
+where the summand is interpreted as $0$ when $\pi_i P_{ij}=0$ and as $+\infty$ when $\pi_i P_{ij}>0$ but $\pi_j P_{ji}=0$ (support mismatch / absolute irreversibility \citep{MurashitaFunoUeda2014}). In steady state ($\pi P=\pi$), Eq.~\eqref{eq:ep} is equivalent to the simpler form $\sum_{i,j}\pi_i P_{ij}\log(P_{ij}/P_{ji})$; we present the stationary-flow form because it makes the meaning of $\mathrm{EP}=\infty$ explicit. In this paper we use $\mathrm{EP}$ as an informational arrow proxy (a bookkeeping asymmetry audit), not as a claim of physical thermodynamic entropy without additional modeling assumptions.
+
+Because $\mathrm{EP}=\infty$ is common in record-coupled regimes, we also report a finite surrogate $\mathrm{EP}_{\varepsilon}$ by flooring reverse stationary flows at a small $\varepsilon$ when needed for magnitude comparisons; the raw ``infinite vs.\ finite'' distinction remains the primary audit signal.
+
+\subsection{Audit 2: path-reversal KL and ``no fake arrows'' under coarse-graining}
+
+Entropy production is a one-step statistic. To audit arrow structure over horizons, we estimate a path-reversal KL divergence \citep{KullbackLeibler1951}:
+\begin{equation}
+  \Sigma_T \;=\; D_{\mathrm{KL}}\!\left(P(z_{0:T})\;\|\;P(z_{T:0})\right),
+  \label{eq:path-kl}
+\end{equation}
+where $z_{0:T}$ denotes a length-$T$ trajectory and $z_{T:0}$ its time-reversal. We estimate $\widehat{\Sigma}_T$ from simulated trajectories using smoothed empirical path frequencies with a symmetric Dirichlet prior of fixed total pseudocount mass (distributed across the observed support and its reverses), and compute macro versions by pushing the same smoothed micro path distribution through a lens (coarse-graining map). This ensures a data-processing (DPI) safe comparison \citep{CoverThomas2006}: under a lens $f:Z\to Y$,
+\begin{equation}
+D_{\mathrm{KL}}(P\|Q)\ \ge\ D_{\mathrm{KL}}(f_{\#}P\ \|\ f_{\#}Q),
+\label{eq:dpi-kl}
+\end{equation}
+so that the projected arrow should not exceed the micro arrow when computed consistently. In the exact stationary Markov case (without smoothing), the path-reversal KL can be related to the steady-state arrow rate \citep{Gaspard2004}; here we use $\widehat{\Sigma}_T$ primarily as a comparative audit at fixed small horizons under matched controls. In the paper tables, we report $\widehat{\Sigma}_T$ for a few small $T$ and for several lenses, including lenses that discard the ledger $R$ or the phase $\Phi$.
+
+This audit corresponds to packaging (P5) and the ``no fake arrows'' claim: coarse-graining can discard irreversibility, but should not manufacture it.
+
+\subsection{Audit 3: clock viability (drift, failure, and anti-stall progress)}
+
+We treat $\Phi$ as a proto-clock carrier and define a \emph{tick} event when $\Phi=0$. A clock is viable only if (i) ticks occur at a stable rate, (ii) the tick process has low drift and low failure, and (iii) stability is not achieved by stalling (``nothing moves'').
+
+We compute:
+(i) tick interval variance (variance of the step counts between consecutive ticks),
+(ii) tick failure rate (fraction of tick-to-tick cycles that contain a drift event),
+(iii) drift rate (drift events per 1000 steps),
+and (iv) explicit budget and maintenance expenditure when a repair policy is enabled. Our repair policy is intentionally simple: if a phase transition deviates from the expected successor, a limited budget can ``snap'' $\Phi$ back to the expected value, consuming ledger.
+
+To prevent the false conclusion that a stalled protocol is a good clock, we also report progress metrics:
+the phase change rate, the expected-step rate (how often $\Phi$ advances by $+1$), and the tick rate. A clock that never advances can have low drift while being useless; progress metrics detect this failure mode. This audit corresponds to staging (P4) and accounting (P6): ticks are stabilized by spending budget, and clock viability must be paid for.
+
+\subsection{Audit 4: enablement as forced theory extension}
+
+Enablement-time is implemented as a closure rewrite driven by a defect in predictive closure. We begin with a coarse lens $f_0$ that omits $\Phi$ (too few variables) and monitor a memory or closure defect via a Markov prediction gap:
+we compare the negative log-likelihood (NLL) of a first-order Markov predictor to a second-order predictor on macro sequences. The raw defect is
+\begin{equation}
+  \mathrm{gap}_{\mathrm{raw}} = \mathrm{NLL}_1 - \mathrm{NLL}_2,
+  \label{eq:gap-raw}
+\end{equation}
+and we report a nonnegative defect $\mathrm{gap}=\max(\mathrm{gap}_{\mathrm{raw}},0)$ for interpretability. When $\mathrm{gap}$ exceeds a threshold, we ``birth'' a richer theory by switching to a lens $f_1$ that includes $\Phi$. We report the birth step and the defect before and after the switch. We also include a ``no birth'' control regime where coupling is disabled and the coarse lens remains adequate.
+
+This audit corresponds to operator rewriting (P1) and packaging/staging (P5/P4): new variables (and thus new notions of time) become necessary and maintainable.
+
+\subsection{Audit 5: constraints and reachability cones}
+
+To model feasibility carving (P2), we apply constraint masks that remove selected transitions and then renormalize remaining probabilities. We report reachability cones by computing the number of states reachable within $\leq t$ steps from a fixed start state for $t=1,\dots,10$. Constraints can sharply alter cone growth and can destroy timekeeping: they can freeze the ledger, stall phase progress, or (in an extreme case) eliminate tick states entirely, rendering clock time unreadable.
+
+\subsection{Audit 6: no global time via protocol holonomy}
+
+To test the ``no global time'' claim (P3), we define multiple closure protocols that induce different local clock readings and measure time-translation increments between them. If the sum of increments around a protocol loop is nonzero (holonomy), no single global time potential can be consistent with all pairwise translations. We demonstrate this quantitatively with a small protocol cycle and provide a commuting control regime with near-zero holonomy. The formal obstruction is anchored by a lightweight mechanized lemma (see the Lean appendix pointers).
+
+\subsection{Audit 7: constraint boxes vs signalling channels (no-signalling toy)}
+
+Finally, we include a minimal four-variable ``box'' model with settings $(x,y)\in\{0,1\}^2$ and outcomes $(a,b)\in\{0,1\}^2$. A constraint-mediated box can produce sharp conditional updates (``given $a$, $b$ is determined'') while remaining no-signalling: the marginal distribution of $b$ at fixed $y$ is invariant to the remote setting $x$. We quantify this using the maximum total-variation (TV) distance between $P(b\mid x=0,y)$ and $P(b\mid x=1,y)$ over $y$. We contrast this with a true signalling box in which the $b$ marginal depends on $x$. This exhibit supports the SBT diagnosis that nonlocal joint constraints need not constitute superluminal causal channels; the ``instant update'' can be record-making and conditioning rather than within-layer causal propagation.
+
+\subsection{Reproducibility and auto-generated paper tables}
+
+Each exhibit script writes a small artifact (JSON or CSV) under \texttt{artifacts/}. A single runner regenerates the full suite:
+\begin{quote}
+\texttt{python python/scripts/run\_all\_exhibits\_smoke.py}
+\end{quote}
+Paper tables are auto-generated from these artifacts:
+\begin{quote}
+\texttt{python python/scripts/paper/make\_paper\_tables.py}
+\end{quote}
+To keep the manuscript synchronized with audited results, the tables used throughout the Results sections are generated automatically from the current artifact set. Table~\ref{tab:artifact-manifest} provides a manifest of which artifact sources were detected at build time.
+
+\begin{table}[t]
+\centering
+\caption{Artifact manifest (auto-generated).}
+\label{tab:artifact-manifest}
+\begin{tabular}{l}
+\toprule
+Artifact \\
+\midrule
+artifacts/exhibit\_dpi\_smoke/metadata.json \\
+artifacts/exhibit\_clock\_budget\_smoke/metadata.json \\
+artifacts/exhibit\_enablement\_birth\_smoke/metadata.json \\
+artifacts/exhibit\_no\_global\_time\_smoke/metadata.json \\
+artifacts/exhibit\_no\_signalling\_toy/metadata.json \\
+artifacts/exhibit\_constraints\_cones\_smoke/metadata.json \\
+artifacts/sweeps/sweep\_smoke/summary.json \\
+\bottomrule
+\end{tabular}
+\end{table}
+ 
+\noindent
+The remaining auto-generated tables are included inline in the Results sections where they are discussed.
+ \section{Results I: arrows and clocks}
+\label{sec:results-arrow-clocks}
+
+We now audit the first two pillars of time-as-closure: (i) the existence of an arrow (irreversible bookkeeping) and (ii) the existence of viable ticks (repeatable staged measurement). Throughout, the connection to SBT is direct: arrows are primarily accounting coupled to packaging (P6 + P5), while clocks are staging coupled to accounting (P4 + P6) with packaging providing tick equivalence classes (P5). We also audit the ``no fake arrows'' sanity check: coarse-graining should not manufacture irreversibility when computed in a DPI-safe manner.
+
+\subsection{Arrow audit I: entropy production and absolute irreversibility}
+
+We compute steady-state entropy production $\mathrm{EP}(P,\pi)$ as in Eq.~\eqref{eq:ep}. In our laboratory, $\mathrm{EP}$ can be either finite or infinite. An infinite value is not a numerical accident; it indicates the presence of one-way transitions in the packaged dynamics: there exist $i\to j$ with $P_{ij}>0$ but $P_{ji}=0$, contributing an infinite log-ratio. In SBT terms, this corresponds to an \emph{absolute} feasibility asymmetry induced by the closure: once accounting and packaging create a one-way record update, reversal is not merely unlikely but disallowed unless the layer is extended to include the missing side information and budgets required to undo the step.
+
+Because $\mathrm{EP}=\infty$ is common in record-coupled regimes, we also compute a regularized statistic by flooring reverse probabilities at a small $\varepsilon$ when reporting magnitudes. The regularized value is not a replacement for the raw audit; it is a reporting convenience that allows finite comparisons across regimes while retaining the qualitative distinction between ``absolutely irreversible'' and ``reversible up to noise.'' We continue to treat the raw $\infty$ vs.\ finite separation as meaningful evidence of bookkeeping irreversibility in the chosen closure.
+
+\subsection{Arrow audit II: path-reversal KL and ``no fake arrows''}
+
+Entropy production is a one-step arrow statistic. To audit arrow structure over longer horizons, we estimate the path-reversal KL $\Sigma_T$ in Eq.~\eqref{eq:path-kl} for $T\in\{1,3,5\}$. We then compare micro trajectories to macro trajectories obtained by applying coarse-graining lenses. Importantly, the macro KL is computed as a pushforward of the same smoothed micro path distribution, making the comparison DPI-safe: any decrease represents a true information loss under coarse-graining, not an artifact of inconsistent estimation.
+
+\begin{table}[t]
+\centering
+\caption{Path-reversal KL (DPI-safe): micro vs coarse lenses.}
+\label{tab:dpi}
+\begin{tabular}{llll}
+\toprule
+T & micro & drop\_r & drop\_phi \\
+\midrule
+1 & 0.707076$\pm$0.0029 & 0.539604$\pm$0.003 & 0.0218686$\pm$0.00052 \\
+3 & 3.0005$\pm$0.011 & 2.11833$\pm$0.01 & 0.0933742$\pm$0.0018 \\
+5 & 9.75999$\pm$0.025 & 8.72512$\pm$0.031 & 0.288827$\pm$0.0043 \\
+\bottomrule
+\end{tabular}
+\end{table}
+ 
+Table~\ref{tab:dpi} shows a clear pattern: the micro arrow dominates, and coarse-graining decreases it. In particular, discarding the ledger component (dropping $R$) reduces $\widehat{\Sigma}_T$ relative to micro for all reported horizons, consistent with the idea that records are a primary arrow carrier. Discarding the phase variable (dropping $\Phi$) collapses the measured arrow by orders of magnitude in this regime, indicating that $\Phi$ is not merely a decorative coordinate but rather a staged protocol variable that couples strongly to irreversible bookkeeping. The identity lens matches the micro statistic by construction and serves as a control.
+
+Because $\widehat{\Sigma}_T$ is a finite-sample estimate based on smoothed path frequencies, we treat it as a horizon-specific comparative statistic: the certified takeaway is the DPI-safe ordering (micro $\ge$ macro under coarse-graining) under matched regimes, not any particular scaling law in $T$.
+
+This supports Claim~2 in Sec.~\ref{sec:time-as-closure}: coarse-graining can destroy arrows but should not create them. In SBT terms, the arrow is not a storytelling artifact of packaging; it is an auditable consequence of accounting plus packaging, and DPI constrains how it behaves under further packaging.
+
+\subsection{Clock viability is paid: budgeted stabilization and anti-stall progress metrics}
+
+To study ticks, we treat $\Phi$ as a proto-clock and define a tick event at $\Phi=0$ (Sec.~\ref{sec:methods}). We evaluate clock viability under noise while enabling an explicit maintenance and repair policy that consumes budget. The key question from the SBT perspective is: can staging (P4) plus accounting (P6) stabilize a repeatable clock in the presence of drift?
+
+\begin{table}[t]
+\centering
+\caption{Clock viability vs maintenance budget.}
+\label{tab:clock-budget}
+\begin{tabular}{lllll}
+\toprule
+budget (repairs/1k) & tick\_failure & tick\_rate/1k & expected\_step/1k & maintenance\_spend/1k \\
+\midrule
+0 & 0.634747 & 124.887 & 501.623 & 0 \\
+50 & 0.519799 & 125.16 & 536.257 & 33.8567 \\
+200 & 0.0127096 & 125.527 & 686.53 & 183.857 \\
+\bottomrule
+\end{tabular}
+\end{table}
+ 
+Table~\ref{tab:clock-budget} shows that increasing maintenance budget materially improves clock viability: tick failure and drift drop sharply as budget increases, while maintenance spend rises. This is the signature ``clock viability is paid'' claim (Claim~3). The clock does not become reliable by declaration; it becomes reliable by spending accounting resources to keep a staged carrier near its expected successor.
+
+\paragraph{Why we need anti-stall metrics.}
+A subtle failure mode is that a ``clock'' can appear stable by simply failing to advance. If $\Phi$ stalls (or is constrained to remain in a narrow subset of states), drift events can become rare and tick-failure measures can appear deceptively favorable, even though the layer has lost a meaningful notion of elapsed time. For this reason, we include progress metrics: phase change rate, expected-step rate (how often $\Phi$ advances by $+1$), and tick rate. A viable clock must both \emph{persist} and \emph{progress}. In later results (Sec.~\ref{sec:results-enablement-constraints}), we show explicit constraint regimes where the expected-step rate collapses to zero while other ``stability'' metrics remain superficially benign, demonstrating that progress audits are necessary to distinguish a working clock from a stalled protocol.
+ \section{Results II: enablement and constraints}
+\label{sec:results-enablement-constraints}
+
+Results~I audited two components of time-as-closure: arrow structure and viable ticks. We now turn to the remaining two pillars emphasized by SBT: (i) \emph{enablement-time}, where the closure itself is rewritten to restore predictive closure, and (ii) \emph{constraints} (P2), which carve feasibility and influence structure and can both support and destroy timekeeping. Both topics highlight that ``having time'' is conditional---conditional on a closure that closes and on feasibility that allows the relevant carriers and records to exist.
+
+\subsection{Enablement births time: forced theory extension with a no-birth control}
+
+Enablement-time is the arrow along which the \emph{theory} changes. In our laboratory, we operationalize this as follows: we begin with a coarse lens $f_0$ that omits the phase variable $\Phi$ and monitor a memory or closure defect using a Markov prediction gap (Sec.~\ref{sec:methods}). When the nonnegative defect $\mathrm{gap}$ exceeds a threshold, we ``birth'' a richer theory by switching to a lens $f_1$ that includes $\Phi$. We interpret this as an enablement event: the variable set is rewritten so that a stable successor structure (and thus a usable within-layer time) becomes available.
+
+\begin{table}[t]
+\centering
+\caption{Enablement as theory rewrite (birth) and a no-birth control.}
+\label{tab:enablement}
+\begin{tabular}{lllll}
+\toprule
+regime & birth\_step & gap\_f0\_max & gap\_pre & gap\_post \\
+\midrule
+enablement & 20000 & 0.338904 & 0.338904 & 0 \\
+control & -- & 0 & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+ 
+Table~\ref{tab:enablement} shows a clean separation between two regimes. In the enablement regime, birth is triggered reliably and the defect collapses after switching to $f_1$: the layer becomes more Markovian once the missing staged variable is admitted. In the control regime, coupling is disabled and $f_0$ remains adequate: no birth occurs and the maximum defect remains below threshold. This contrast illustrates causation-time (successor structure within a fixed closure) versus enablement-time (rewriting the closure so that successor structure becomes well-defined). In SBT terms, this is operator rewriting (P1) driven by closure failure, enabled by packaging and staging choices (P5/P4): admitting the right carrier variable makes prediction and time-ordering cheap enough to maintain.
+
+\subsection{Constraints carve cones and can destroy timekeeping}
+
+Constraints (P2) are feasibility statements: they carve which micro-transitions are allowed and therefore which macro influences are physically or operationally realizable. In our laboratory, constraints are implemented as transition masks that remove selected edges of the Markov chain and renormalize the remaining probabilities. We then compute reachability cones by graph search on the support: the number of states reachable within $\leq t$ steps from a fixed start state.
+
+\begin{table}[t]
+\centering
+\footnotesize
+\caption{Constraints carve reachability cones and can destroy timekeeping.}
+\label{tab:constraints-cones}
+\begin{tabular}{llllllll}
+\toprule
+regime & \shortstack{cone size\\(t=1)} & \shortstack{cone size\\(t=10)} & ep\_reg & \shortstack{tick rate\\(/1k)} & \shortstack{expected step\\(/1k)} & \shortstack{tick\\ failure} & \shortstack{tick failure\\ nan count} \\
+\midrule
+unconstrained & 11 & 227 & 1.07 & 123.3 & 534.2 & 0.6108 & 0 \\
+r\_constant & 10 & 24 & 0.1563 & 125.3 & 372.4 & 0.5726 & 0 \\
+phi\_forbid\_pm1 & 8 & 24 & 1.928e-11 & 123.5 & 0 & 0.0684 & 0 \\
+phi\_no\_ticks & 9 & 193 & 0.6334 & 0 & 303.1 & -- & 3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+ 
+Table~\ref{tab:constraints-cones} shows that constraints produce nontrivial and regime-specific cone growth: different feasibility rules yield different reachable-set sizes at both short and longer horizons. Constraints also reshape arrow metrics and clock viability. Freezing the ledger component (the \texttt{r\_constant} regime) reduces entropy production relative to the unconstrained record-driven regime, reflecting the fact that bookkeeping irreversibility is coupled to the ability to update the ledger. Restricting phase motion (the \texttt{phi\_forbid\_pm1} regime) can collapse the expected-step rate to zero: the protocol no longer advances as a proper clock even if other stability metrics appear favorable.
+
+\paragraph{Tick disappearance and undefined tick failure.}
+The \texttt{phi\_no\_ticks} regime provides an extreme but instructive failure mode: the constraint forbids transitions into the tick state ($\Phi=0$). As a result, the tick rate collapses to zero. In such a regime, the notion of ``tick failure rate'' becomes undefined because there are no tick-to-tick cycles to evaluate; we therefore report tick failure as ``--'' and record the number of seeds and runs in which the metric is undefined. This is not a numerical bug but rather the correct audit outcome: the layer has lost the ability to represent elapsed time in tick units because the clock's distinguished states are not feasible under the constraints.
+
+\medskip
+\noindent
+Together, these results reinforce the SBT view that time is conditional on closure and feasibility. Enablement events rewrite the closure so that a usable successor structure and staged clock carriers exist. Constraints carve influence cones and can destroy timekeeping by stalling progress, freezing accounting updates, or eliminating tick states entirely. In the next section, we turn to a deeper consequence of plural closure: when protocols do not commute, there need not exist a single global time consistent across translations.
+ \section{No global time from protocol holonomy}
+\label{sec:no-global-time}
+
+A central SBT claim is that time is plural: different closures induce different local successor structures and clock readings, and there need not exist a single global time that coherently translates between them. In SBT terms, the obstruction arises from protocol holonomy (P3): when closure and translation protocols do not commute, ``time translation'' becomes path-dependent.
+
+Our use of ``global time'' is specific to closure protocols: it asks whether there exists a single potential that reconciles time-translation increments across a protocol graph, and it is distinct from questions about global time functions or foliations in relativistic spacetime geometry.
+
+\subsection{Local times and time translation as a 1-form}
+
+Consider a family of closure protocols (or ``contexts'') indexed by vertices $V$. Each protocol $u\in V$ induces a local time parameterization, e.g.\ a local notion of tick count along trajectories. Suppose we can empirically define a time-translation increment on directed protocol edges,
+\begin{equation}
+  \omega(u\to v) \in \mathbb{R},
+  \label{eq:omega}
+\end{equation}
+
+This increment is interpreted as an expected conversion (or offset) between the local tick counts of protocol $u$ and protocol $v$ when comparing matched trajectories. In differential-geometric language, $\omega$ behaves like a discrete 1-form on the protocol graph: it assigns an increment to each directed edge.
+
+In our experiments, $\omega$ is estimated as a mean tick-offset induced by a protocol translation and can be fractional (e.g., half-tick) when protocols coarse-grain and lift phase states using different representatives; the holonomy obstruction uses only additivity, so it applies equally over $\mathbb{R}$. Our mechanized lemma is stated over integers for simplicity and applies to the measured case after a fixed choice of units (e.g., measuring in half-ticks so all offsets are integral).
+
+A \emph{global time} would correspond to a single potential function $t:V\to\mathbb{R}$ such that
+\begin{equation}
+  \omega(u\to v) = t(v) - t(u)
+  \label{eq:potential}
+\end{equation}
+for all edges. If such a potential exists, time translations are globally consistent: translating from $u$ to $v$ does not depend on the path chosen in the protocol graph.
+
+\subsection{The holonomy obstruction (informal theorem)}
+
+When protocols do not commute, the increments $\omega$ need not be exact. The obstruction is detected by holonomy: the sum of $\omega$ around a directed cycle. For a triangle cycle $u\to v\to w\to u$, define
+\begin{equation}
+  H(u,v,w) \;=\; \omega(u\to v) + \omega(v\to w) + \omega(w\to u).
+  \label{eq:holonomy}
+\end{equation}
+
+\paragraph{Theorem (No Global Time from Holonomy; informal).}
+If there exists a directed cycle with nonzero holonomy (e.g.\ $H(u,v,w)\neq 0$ for some triangle), then no global potential $t:V\to\mathbb{R}$ can satisfy Eq.~\eqref{eq:potential} on that cycle. In other words, there is no single globally consistent time coordinate across these protocols.
+
+\paragraph{Proof sketch.}
+If a potential $t$ existed, then $\omega(u\to v)=t(v)-t(u)$ would telescope around any cycle, yielding a sum of zero. A nonzero cycle sum is therefore a direct obstruction: time translation is path-dependent. This is the discrete analogue of ``nonzero curvature implies the 1-form is not exact.'' In our Lean anchors, the telescoping identity is captured by \texttt{triangle\_sum\_of\_\allowbreak potential}, and the obstruction by \texttt{no\_global\_potential\_of\_\allowbreak nonzero\_triangle\_holonomy} (stated over integer-valued offsets; see the units remark above).
+
+\subsection{Measured holonomy in the toy laboratory}
+
+We operationalize protocols as different ways of coarse-graining and lifting the phase variable $\Phi$. Protocol A keeps the full phase; protocols B and C coarse-grain $\Phi$ to a half-phase bin and lift back to even or odd representatives (a choice of section). These protocols agree locally but fail to commute globally: transporting time around the loop A$\to$B$\to$C$\to$A produces a net offset.
+
+\begin{table}[t]
+\centering
+\caption{No global time via protocol holonomy.}
+\label{tab:holonomy}
+\begin{tabular}{lll}
+\toprule
+regime & H\_mean & H\_stderr \\
+\midrule
+nonzero & 0.500005 & 0.000913166 \\
+control & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+ 
+Table~\ref{tab:holonomy} reports the measured holonomy statistic $H$ in a noncommuting regime and in a commuting control regime. In the noncommuting regime, $H$ is robustly nonzero with small error; in the control regime, $H$ is near zero. This is the promised ``no global time'' exhibit: local times exist, but global gluing fails.
+
+\subsection{Why this matters for time in SBT}
+
+The holonomy obstruction reframes the expectation that there should exist a single universal clock. In a multi-layer world, time translation is a compatibility problem: times can be glued across layers only to the extent that closure protocols commute and ledgers can be reconciled. When holonomy is nontrivial, ``elapsed time'' becomes protocol-dependent. This is not a defect of the model but rather an audit result about how closures relate.
+Related holonomy and geometric-phase phenomena (Berry phase) \citep{Berry1984} and their stochastic counterparts have been studied by, e.g., \citet{SinitsynNemenman2007}.
+
+\noindent\textbf{Mechanized anchor (Lean).}\par
+\begin{sloppypar}\small
+The structural lemma used above is mechanized in \url{lean/TimeWorld/HolonomyNoGlobalTime.lean}. The identifiers referenced in this section are:
+\url{triangle_sum_of_potential} and \url{no_global_potential_of_nonzero_triangle_holonomy}. We also rely on the general closure-stability lemmas and preorder anchors elsewhere in the repository (see Appendix pointers in Sec.~\ref{sec:appendix-mechanized}).
+\end{sloppypar}
+ \section{A physics dilemma reframed: constraints are not channels}
+\label{sec:physics-dilemma}
+
+Modern physics is often narrated as a tension about causal influence. Special relativity constrains influence by causal cones: no signal, energy, or controllable intervention propagates faster than light \citep{einstein_1905}. Quantum theory, meanwhile, exhibits correlations between spacelike-separated outcomes that can appear to involve instantaneous influence, famously highlighted by Bell-type arguments, while still forbidding superluminal communication in its standard operational predictions (no-signalling) \citep{nielsen_chuang,bell_1964}. SBT's answer to this ``dilemma'' is not to deny either side but to separate two concepts that are routinely conflated: \emph{constraint} and \emph{channel}.
+
+\subsection{SBT diagnosis: feasibility constraints vs causal channels}
+
+In SBT terms, relativistic locality is primarily a P2 statement: it carves the feasible influence structure available to within-layer causation-time. A causal channel is an intervention-respecting mechanism: if an agent can vary a local choice at $A$ and thereby change the remote marginal distribution at $B$ outside the causal cone, the layer contains a superluminal signalling channel and violates the P2 cone constraints of the relativistic layer.
+
+Quantum entanglement, by contrast, is well modeled (at the operational level) as a \emph{constraint on joint feasibility} of outcomes rather than a controllable causal channel. A prepared composite can impose a non-factorizable constraint on $(a,b)$ without enabling superluminal signalling. In SBT language, this is exactly what we expect after enablement: packaging (P5) creates a composite object with new invariants, and constraints (P2) carve which joint outcome pairs are feasible. When a measurement occurs locally, staging and accounting (P4 + P6) create an irreversible record; conditionalization on that record can produce a sharp update of expectations about distant outcomes without requiring any physical propagation.
+
+The ``instantaneous influence'' appearance is therefore a mixture of (i) joint feasibility constraints and (ii) record-making plus protocol-dependent conditioning. It is not, by itself, evidence of a superluminal causal channel.
+
+\subsection{A minimal audit: no-signalling as the channel test}
+
+A minimal operational separator between ``constraint'' and ``channel'' is no-signalling: a remote marginal should not depend on a spacelike-separated setting.
+No-signalling is a criterion for the absence of a controllable communication channel; it does not, by itself, restore local causality, and Bell-nonlocal correlations can persist even in no-signalling theories \citep{brunner_2014_bell_nonlocality}.
+We capture this distinction with a minimal four-variable box model with settings $(x,y)\in\{0,1\}^2$ and outcomes $(a,b)\in\{0,1\}^2$ \citep{PopescuRohrlich1994}.
+This box model is deliberately classical and minimal; it is used to isolate the constraint-versus-channel logic, not to reproduce the full structure of quantum measurement.
+
+\paragraph{Constraint box.}
+Define $a$ uniformly at random and set $b = a \oplus g(x,y)$ for a nontrivial function $g$ (in our toy, $g(x,y)=x\wedge y$). This produces sharp conditional updates (given $a$, $b$ is determined), yet the marginal $P(b\mid x,y)$ remains uniform and independent of $x$ at fixed $y$. Conditioning produces an ``instant update'' of beliefs, but there is no signalling channel. Operationally, this is a one-time-pad structure \citep{Shannon1949}: without receiving the local record $a$ via an ordinary channel, the remote marginal at $B$ contains no information about $x$ even though conditioning on $a$ makes $b$ deterministic.
+
+\paragraph{Signalling box.}
+Define $b=x$ deterministically (with $a$ uniform). Now the marginal $P(b\mid x,y)$ depends maximally on $x$, and the box constitutes a true channel from $x$ to $b$.
+
+We quantify signalling by a max total-variation distance between remote marginals:
+\[
+\max_{y}\ \mathrm{TV}\!\left(P(b\mid x{=}0,y),\,P(b\mid x{=}1,y)\right).
+\]
+A value near $0$ indicates no-signalling (no channel); a value near $1$ indicates strong signalling.
+
+\begin{table}[t]
+\centering
+\caption{Constraint box vs signalling channel (no-signalling metric).}
+\label{tab:no-signalling}
+\begin{tabular}{lll}
+\toprule
+box & max TV($A\rightarrow B$) & example conditional \\
+\midrule
+constraint\_box & 0 & P(b|a0\_x1\_y1)={'0': 0.0, '1': 1.0} \\
+signalling\_box & 1 & P(b|a0\_x0\_y0)={'0': 1.0, '1': 0.0} \\
+\bottomrule
+\end{tabular}
+\end{table}
+ 
+Table~\ref{tab:no-signalling} reports this metric and an example conditional distribution. The constraint box exhibits sharp conditionals but no signalling, while the signalling box exhibits maximal signalling. This illustrates the SBT point in the smallest possible setting: strong conditional update is not the same as causal influence.
+
+\subsection{Connecting back to time: records are local notches, translation is protocol-dependent}
+
+The stone metaphor now has a physics reading. Records are not abstract; they are staged, local carriers (P4) that incur accounting cost (P6). We use ``collapse'' here as shorthand for the birth of a macro-record and the consequent rewrite of the effective description around it (P5/P1); we do not take a stand on whether collapse is ontic or purely epistemic. Because different closures and update protocols need not commute (P3), there is no requirement that these record-updates embed into a single global time ordering---indeed, Sec.~\ref{sec:no-global-time} shows a concrete holonomy obstruction. The combination yields a coherent SBT stance: relativistic causal cones constrain channels; quantum correlations can be constraint-mediated; and the apparent instantaneous update resides in packaging and conditioning rather than in superluminal causation-time propagation.
+
+\noindent\textbf{Mechanized anchor (Lean).}
+\par
+\begin{sloppypar}\small
+A lightweight structural version of the no-signalling toy is mechanized in \texttt{lean/\allowbreak TimeWorld/\allowbreak NoSignallingToy.lean}. In particular, \texttt{marginalB\_\allowbreak uniform\_\allowbreak of\_\allowbreak xor\_\allowbreak constraint} shows the constraint-box marginal is uniform (no signalling), while \texttt{signalling\_\allowbreak marginalB\_\allowbreak depends\_\allowbreak on\_\allowbreak x} shows the signalling box marginal depends on the setting.
+\end{sloppypar}
+ \section{Discussion and conclusion}
+\label{sec:discussion}
+
+This paper argued for a simple but consequential reframing: time is not a primitive background coordinate; time is a closure artifact assembled by the six primitives of Six Birds Theory (SBT). A layer has time to the extent that it can stabilize (i) a successor structure (order), (ii) a repeatable measure of change (ticks), and (iii) an irreversible bookkeeping mechanism (arrow). In SBT terms, arrows are primarily accounting (P6) made legible by staging (P4) and sharpened by lossy packaging (P5); clocks are staged protocols stabilized by budget (P4 + P6) with packaging defining tick equivalence (P5). Crucially, this paper emphasized plural time: different closures induce different local times, and protocol holonomy (P3) can obstruct the existence of a single global time potential.
+
+\paragraph{What the laboratory demonstrates.}
+The finite-state laboratory does not aim to be a model of spacetime. Its role is to make SBT claims auditable. Within this small setting, we can observe clearly:
+(i) arrow metrics (entropy production and path-reversal KL) emerge in ledger-coupled regimes and diminish under coarse-graining in a DPI-safe manner;
+(ii) clock viability is paid, with maintenance budget trading off against drift and failure, and with progress metrics needed to avoid ``stall masquerading as stability'';
+(iii) enablement-time can be modeled as forced theory extension: closure defects in an impoverished lens trigger birth of a richer closure that materially improves predictability, while a no-birth control regime remains stable;
+(iv) constraints carve reachability cones and can destroy timekeeping by freezing ledgers, stalling progress, or eliminating tick states; and
+(v) no global time can be made concrete: measured holonomy around noncommuting protocols obstructs a global time potential.
+
+\paragraph{Limits and scope.}
+Several limitations are intentional. First, we do not claim that the laboratory's $\Phi$ is ``physical time''; it is a staged carrier used to audit when a clock can exist in a closure. Second, we do not claim that entropy production is the unique arrow; it is one audit proxy among many, selected for exactness in finite Markov worlds. Third, our enablement mechanism is deliberately simple (a thresholded closure defect). In richer systems, enablement is likely multi-scale and multi-object, with competing closures and budgets. Finally, we do not resolve foundational questions in quantum theory or relativity; we provide an SBT parsing that distinguishes feasibility constraints from causal channels and highlights the role of records and protocol dependence.
+
+\paragraph{Implications and open directions.}
+The SBT lens suggests several directions:
+(i) \emph{Ledger reconciliation across layers}: when multiple closures coexist, how should accounting variables be translated, and when can arrows be compared?
+(ii) \emph{Clock synthesis}: what repair policies and staging mechanisms minimize cost for a desired tick fidelity?
+(iii) \emph{Theory evolution as dynamics}: enablement-time can itself be modeled as a process over closures; this suggests a calculus of layer birth, death, and translation.
+(iv) \emph{Compatibility conditions for global time}: holonomy provides a sharp obstruction; characterizing when holonomy vanishes is a concrete research program.
+(v) \emph{Constraint vs channel in physical narratives}: the no-signalling audit provides a crisp operational separator that can be applied beyond quantum examples, wherever strong correlations are mistaken for controllable influence.
+
+\paragraph{Conclusion.}
+To notch a stone is to manufacture time: persistent marks (staging), countable equivalence classes (packaging), and costly irreversibility (accounting) together create order, measure, and arrow. Six Birds Theory provides a compact vocabulary for this manufacturing process and a set of audits that distinguish genuine time-like structure from artifacts of description. In this view, time is not one thing but many: local to layers, translated by protocols, and sometimes globally obstructed.
+ \appendix
+
+\section{Appendices}
+\label{sec:appendices}
+
+This appendix provides reproducibility instructions and documents the mechanized anchors referenced in the main text.
+
+\subsection{Reproducibility: regenerating artifacts and paper tables}
+\label{sec:appendix-repro}
+
+All experiments write artifacts under \texttt{artifacts/} (JSON and CSV). The recommended end-to-end regeneration sequence from the repository root is:
+
+\begin{quote}
+\texttt{python python/scripts/run\_all\_exhibits\_smoke.py}
+\end{quote}
+
+This runner executes the exhibit scripts and verifies that the expected artifacts exist, including at minimum:
+
+\begin{itemize}
+  \item \texttt{artifacts/exhibit\_dpi\_smoke/metadata.json}
+  \item \texttt{artifacts/exhibit\_clock\_budget\_smoke/metadata.json}
+  \item \texttt{artifacts/exhibit\_enablement\_birth\_smoke/metadata.json}
+  \item \texttt{artifacts/exhibit\_constraints\_cones\_smoke/metadata.json}
+  \item \texttt{artifacts/exhibit\_no\_global\_time\_smoke/metadata.json}
+  \item \texttt{artifacts/exhibit\_no\_signalling\_toy/metadata.json}
+  \item \texttt{artifacts/sweeps/sweep\_smoke/results.csv}
+  \item \texttt{artifacts/sweeps/sweep\_smoke/summary.json}
+\end{itemize}
+
+Paper tables are generated from these artifacts by:
+
+\begin{quote}
+\texttt{python python/scripts/paper/make\_paper\_tables.py}
+\end{quote}
+
+The generated tables are written to \texttt{docs/paper/tables/} and included in the manuscript via \texttt{\textbackslash input\{tables/...\}}.
+
+\subsection{Mechanized anchors (Lean)}
+\label{sec:appendix-mechanized}
+
+We include lightweight Lean~4 formalizations as structural anchors for several claims.
+These files are intended to mechanize small algebraic skeletons cited in the narrative, not to verify the empirical audits end-to-end.
+
+\paragraph{Holonomy obstruction (no global time).}
+\begingroup\sloppy
+File: \url{lean/TimeWorld/HolonomyNoGlobalTime.lean}. Key identifiers:
+\url{triangle_sum_of_potential} and \url{no_global_potential_of_nonzero_triangle_holonomy}.
+\endgroup
+These capture the telescoping identity for exact 1-forms and the obstruction implied by nonzero cycle sum.
+
+\paragraph{Closure descent to fixed points.}
+\begingroup\sloppy
+File: \url{lean/TimeWorld/DescentToFixpoints.lean}. Key identifiers:
+\url{map_fix_of_commute} and \url{restrictToFix}.
+\endgroup
+These encode a basic ``descent'' fact: if an idempotent packaging map commutes with an update, then the update restricts to the packaged fixed-point subspace.
+
+\paragraph{Ledger preorder anchor.}
+\begingroup\sloppy
+File: \url{lean/TimeWorld/LedgerPreorder.lean}. Key identifiers:
+\url{ledgerPreorder} and \url{ledger_step_le_of_monotone}.
+\endgroup
+These show how a monotone ledger induces a preorder compatible with an update rule.
+
+\paragraph{No-signalling toy anchors.}
+\begingroup\sloppy
+File: \url{lean/TimeWorld/NoSignallingToy.lean}. Key identifiers:
+\url{marginalB_uniform_of_xor_constraint} and \url{signalling_marginalB_depends_on_x}.
+\endgroup
+These formalize, in a minimal Boolean setting, that constraint-mediated sharp conditionals do not imply a signalling channel.
+
+\subsection{Code map (Python)}
+\label{sec:appendix-code}
+
+The main Python components are organized under \texttt{python/src/time\_world/}:
+
+\begin{itemize}
+  \item \texttt{model.py}: toy Markov world construction and simulation
+  \item \texttt{audits\_ep.py}: stationary distribution and entropy production
+  \item \texttt{audits\_path\_kl.py}: DPI-safe path-reversal KL estimation under lenses
+  \item \texttt{clock\_audits.py}: clock viability metrics, including progress/anti-stall rates
+  \item \texttt{enablement.py}: closure defect and forced theory extension
+  \item \texttt{constraints\_cones.py}: constraint masks and reachability cones
+  \item \texttt{holonomy.py}: protocol holonomy measurement
+  \item \texttt{no\_signalling\_toy.py}: constraint vs signalling boxes
+\end{itemize}
+
+Exhibit scripts live under \texttt{python/scripts/}. See \texttt{docs/experiments/index.md} for the internal runbook list.
+ 
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

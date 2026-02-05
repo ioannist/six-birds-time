@@ -1,0 +1,122 @@
+\begin{thebibliography}{16}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bell(1964)]{bell_1964}
+John~S. Bell.
+\newblock On the einstein podolsky rosen paradox.
+\newblock \emph{Physics Physique Fizika}, 1\penalty0 (3):\penalty0 195--200,
+  1964.
+\newblock \doi{10.1103/PhysicsPhysiqueFizika.1.195}.
+
+\bibitem[Berry(1984)]{Berry1984}
+M.~V. Berry.
+\newblock Quantal phase factors accompanying adiabatic changes.
+\newblock \emph{Proceedings of the Royal Society of London. Series A,
+  Mathematical and Physical Sciences}, 392\penalty0 (1802):\penalty0 45--57,
+  1984.
+\newblock \doi{10.1098/rspa.1984.0023}.
+
+\bibitem[Brunner et~al.(2014)Brunner, Cavalcanti, Pironio, Scarani, and
+  Wehner]{brunner_2014_bell_nonlocality}
+Nicolas Brunner, Daniel Cavalcanti, Stefano Pironio, Valerio Scarani, and
+  Stephanie Wehner.
+\newblock Bell nonlocality.
+\newblock \emph{Reviews of Modern Physics}, 86\penalty0 (2):\penalty0 419--478,
+  2014.
+\newblock \doi{10.1103/RevModPhys.86.419}.
+
+\bibitem[Cover and Thomas(2006)]{CoverThomas2006}
+Thomas~M. Cover and Joy~A. Thomas.
+\newblock \emph{Elements of Information Theory}.
+\newblock Wiley, 2 edition, 2006.
+\newblock ISBN 978-0-471-24195-9.
+
+\bibitem[Einstein(1905)]{einstein_1905}
+Albert Einstein.
+\newblock Zur elektrodynamik bewegter k{\"o}rper.
+\newblock \emph{Annalen der Physik}, 322\penalty0 (10):\penalty0 891--921,
+  1905.
+\newblock \doi{10.1002/andp.19053221004}.
+
+\bibitem[Gaspard(2004)]{Gaspard2004}
+Pierre Gaspard.
+\newblock Time-reversed dynamical entropy and irreversibility in markovian
+  random processes.
+\newblock \emph{Journal of Statistical Physics}, 117\penalty0 (3-4):\penalty0
+  599--615, 2004.
+\newblock \doi{10.1007/s10955-004-3455-1}.
+
+\bibitem[Kullback and Leibler(1951)]{KullbackLeibler1951}
+Solomon Kullback and Richard~A. Leibler.
+\newblock On information and sufficiency.
+\newblock \emph{The Annals of Mathematical Statistics}, 22\penalty0
+  (1):\penalty0 79--86, 1951.
+\newblock \doi{10.1214/aoms/1177729694}.
+
+\bibitem[Murashita et~al.(2014)Murashita, Funo, and
+  Ueda]{MurashitaFunoUeda2014}
+Y\={u}to Murashita, Ken Funo, and Masahito Ueda.
+\newblock Nonequilibrium equalities in absolutely irreversible processes.
+\newblock \emph{Physical Review E}, 90\penalty0 (4):\penalty0 042110, 2014.
+\newblock \doi{10.1103/PhysRevE.90.042110}.
+
+\bibitem[Nielsen and Chuang(2010)]{nielsen_chuang}
+Michael~A. Nielsen and Isaac~L. Chuang.
+\newblock \emph{Quantum Computation and Quantum Information}.
+\newblock Cambridge University Press, 10th anniversary edition edition, 2010.
+\newblock ISBN 9781107002173.
+\newblock \doi{10.1017/CBO9780511976667}.
+
+\bibitem[Norris(1997)]{Norris1997}
+J.~R. Norris.
+\newblock \emph{Markov Chains}.
+\newblock Cambridge University Press, 1997.
+\newblock ISBN 978-0-521-63396-3.
+
+\bibitem[Popescu and Rohrlich(1994)]{PopescuRohrlich1994}
+Sandu Popescu and Daniel Rohrlich.
+\newblock Quantum nonlocality as an axiom.
+\newblock \emph{Foundations of Physics}, 24\penalty0 (3):\penalty0 379--385,
+  1994.
+\newblock \doi{10.1007/BF02058098}.
+
+\bibitem[Schnakenberg(1976)]{Schnakenberg1976}
+J.~Schnakenberg.
+\newblock Network theory of microscopic and macroscopic behavior of master
+  equation systems.
+\newblock \emph{Reviews of Modern Physics}, 48\penalty0 (4):\penalty0 571--585,
+  1976.
+\newblock \doi{10.1103/RevModPhys.48.571}.
+
+\bibitem[Seifert(2012)]{Seifert2012}
+Udo Seifert.
+\newblock Stochastic thermodynamics, fluctuation theorems and molecular
+  machines.
+\newblock \emph{Reports on Progress in Physics}, 75\penalty0 (12):\penalty0
+  126001, 2012.
+\newblock \doi{10.1088/0034-4885/75/12/126001}.
+
+\bibitem[Shannon(1949)]{Shannon1949}
+Claude~E. Shannon.
+\newblock Communication theory of secrecy systems.
+\newblock \emph{Bell System Technical Journal}, 28\penalty0 (4):\penalty0
+  656--715, 1949.
+\newblock \doi{10.1002/j.1538-7305.1949.tb00928.x}.
+
+\bibitem[Sinitsyn and Nemenman(2007)]{SinitsynNemenman2007}
+N.~A. Sinitsyn and I.~Nemenman.
+\newblock The berry phase and the pump flux in stochastic chemical kinetics.
+\newblock \emph{Europhysics Letters}, 77\penalty0 (5):\penalty0 58001, 2007.
+\newblock \doi{10.1209/0295-5075/77/58001}.
+
+\bibitem[Tsiokos(2026)]{sixbirds_foundations}
+Ioannis Tsiokos.
+\newblock Six birds: Foundations of emergence calculus, January 2026.
+\newblock URL \url{https://doi.org/10.5281/zenodo.18365949}.
+\newblock Zenodo.
+
+\end{thebibliography}

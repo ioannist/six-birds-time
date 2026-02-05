@@ -1,0 +1,43 @@
+{
+  "allowed_roots": {
+    "python": {
+      "extensions": [".py", ".toml", ".md", ".ini", ".txt", ".yml", ".yaml", ".json"]
+    },
+    "docs": {
+      "extensions": [
+        ".md",
+        ".txt",
+        ".yml",
+        ".yaml",
+        ".tex",
+        ".bib",
+        ".pdf",
+        ".png",
+        ".jpg",
+        ".jpeg"
+      ]
+    },
+    "lean": {
+      "extensions": ["", ".lean", ".toml", ".md", ".json", ".txt"]
+    },
+    "scripts": {
+      "extensions": [".sh", ".py", ".txt"]
+    }
+  },
+  "allowed_root_files": [
+    "Makefile",
+    ".gitignore",
+    ".package-repo-snapshot.json"
+  ],
+  "exclude_dirs": [
+    ".git",
+    ".lake",
+    ".venv",
+    "venv",
+    "__pycache__",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".ipynb_checkpoints"
+  ]
+}

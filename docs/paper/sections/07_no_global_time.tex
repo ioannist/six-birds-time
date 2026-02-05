@@ -1,0 +1,58 @@
+\section{No global time from protocol holonomy}
+\label{sec:no-global-time}
+
+A central SBT claim is that time is plural: different closures induce different local successor structures and clock readings, and there need not exist a single global time that coherently translates between them. In SBT terms, the obstruction arises from protocol holonomy (P3): when closure and translation protocols do not commute, ``time translation'' becomes path-dependent.
+
+Our use of ``global time'' is specific to closure protocols: it asks whether there exists a single potential that reconciles time-translation increments across a protocol graph, and it is distinct from questions about global time functions or foliations in relativistic spacetime geometry.
+
+\subsection{Local times and time translation as a 1-form}
+
+Consider a family of closure protocols (or ``contexts'') indexed by vertices $V$. Each protocol $u\in V$ induces a local time parameterization, e.g.\ a local notion of tick count along trajectories. Suppose we can empirically define a time-translation increment on directed protocol edges,
+\begin{equation}
+  \omega(u\to v) \in \mathbb{R},
+  \label{eq:omega}
+\end{equation}
+
+This increment is interpreted as an expected conversion (or offset) between the local tick counts of protocol $u$ and protocol $v$ when comparing matched trajectories. In differential-geometric language, $\omega$ behaves like a discrete 1-form on the protocol graph: it assigns an increment to each directed edge.
+
+In our experiments, $\omega$ is estimated as a mean tick-offset induced by a protocol translation and can be fractional (e.g., half-tick) when protocols coarse-grain and lift phase states using different representatives; the holonomy obstruction uses only additivity, so it applies equally over $\mathbb{R}$. Our mechanized lemma is stated over integers for simplicity and applies to the measured case after a fixed choice of units (e.g., measuring in half-ticks so all offsets are integral).
+
+A \emph{global time} would correspond to a single potential function $t:V\to\mathbb{R}$ such that
+\begin{equation}
+  \omega(u\to v) = t(v) - t(u)
+  \label{eq:potential}
+\end{equation}
+for all edges. If such a potential exists, time translations are globally consistent: translating from $u$ to $v$ does not depend on the path chosen in the protocol graph.
+
+\subsection{The holonomy obstruction (informal theorem)}
+
+When protocols do not commute, the increments $\omega$ need not be exact. The obstruction is detected by holonomy: the sum of $\omega$ around a directed cycle. For a triangle cycle $u\to v\to w\to u$, define
+\begin{equation}
+  H(u,v,w) \;=\; \omega(u\to v) + \omega(v\to w) + \omega(w\to u).
+  \label{eq:holonomy}
+\end{equation}
+
+\paragraph{Theorem (No Global Time from Holonomy; informal).}
+If there exists a directed cycle with nonzero holonomy (e.g.\ $H(u,v,w)\neq 0$ for some triangle), then no global potential $t:V\to\mathbb{R}$ can satisfy Eq.~\eqref{eq:potential} on that cycle. In other words, there is no single globally consistent time coordinate across these protocols.
+
+\paragraph{Proof sketch.}
+If a potential $t$ existed, then $\omega(u\to v)=t(v)-t(u)$ would telescope around any cycle, yielding a sum of zero. A nonzero cycle sum is therefore a direct obstruction: time translation is path-dependent. This is the discrete analogue of ``nonzero curvature implies the 1-form is not exact.'' In our Lean anchors, the telescoping identity is captured by \texttt{triangle\_sum\_of\_\allowbreak potential}, and the obstruction by \texttt{no\_global\_potential\_of\_\allowbreak nonzero\_triangle\_holonomy} (stated over integer-valued offsets; see the units remark above).
+
+\subsection{Measured holonomy in the toy laboratory}
+
+We operationalize protocols as different ways of coarse-graining and lifting the phase variable $\Phi$. Protocol A keeps the full phase; protocols B and C coarse-grain $\Phi$ to a half-phase bin and lift back to even or odd representatives (a choice of section). These protocols agree locally but fail to commute globally: transporting time around the loop A$\to$B$\to$C$\to$A produces a net offset.
+
+\input{tables/table_holonomy}
+
+Table~\ref{tab:holonomy} reports the measured holonomy statistic $H$ in a noncommuting regime and in a commuting control regime. In the noncommuting regime, $H$ is robustly nonzero with small error; in the control regime, $H$ is near zero. This is the promised ``no global time'' exhibit: local times exist, but global gluing fails.
+
+\subsection{Why this matters for time in SBT}
+
+The holonomy obstruction reframes the expectation that there should exist a single universal clock. In a multi-layer world, time translation is a compatibility problem: times can be glued across layers only to the extent that closure protocols commute and ledgers can be reconciled. When holonomy is nontrivial, ``elapsed time'' becomes protocol-dependent. This is not a defect of the model but rather an audit result about how closures relate.
+Related holonomy and geometric-phase phenomena (Berry phase) \citep{Berry1984} and their stochastic counterparts have been studied by, e.g., \citet{SinitsynNemenman2007}.
+
+\noindent\textbf{Mechanized anchor (Lean).}\par
+\begin{sloppypar}\small
+The structural lemma used above is mechanized in \url{lean/TimeWorld/HolonomyNoGlobalTime.lean}. The identifiers referenced in this section are:
+\url{triangle_sum_of_potential} and \url{no_global_potential_of_nonzero_triangle_holonomy}. We also rely on the general closure-stability lemmas and preorder anchors elsewhere in the repository (see Appendix pointers in Sec.~\ref{sec:appendix-mechanized}).
+\end{sloppypar}

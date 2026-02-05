@@ -1,0 +1,45 @@
+\section{A physics dilemma reframed: constraints are not channels}
+\label{sec:physics-dilemma}
+
+Modern physics is often narrated as a tension about causal influence. Special relativity constrains influence by causal cones: no signal, energy, or controllable intervention propagates faster than light \citep{einstein_1905}. Quantum theory, meanwhile, exhibits correlations between spacelike-separated outcomes that can appear to involve instantaneous influence, famously highlighted by Bell-type arguments, while still forbidding superluminal communication in its standard operational predictions (no-signalling) \citep{nielsen_chuang,bell_1964}. SBT's answer to this ``dilemma'' is not to deny either side but to separate two concepts that are routinely conflated: \emph{constraint} and \emph{channel}.
+
+\subsection{SBT diagnosis: feasibility constraints vs causal channels}
+
+In SBT terms, relativistic locality is primarily a P2 statement: it carves the feasible influence structure available to within-layer causation-time. A causal channel is an intervention-respecting mechanism: if an agent can vary a local choice at $A$ and thereby change the remote marginal distribution at $B$ outside the causal cone, the layer contains a superluminal signalling channel and violates the P2 cone constraints of the relativistic layer.
+
+Quantum entanglement, by contrast, is well modeled (at the operational level) as a \emph{constraint on joint feasibility} of outcomes rather than a controllable causal channel. A prepared composite can impose a non-factorizable constraint on $(a,b)$ without enabling superluminal signalling. In SBT language, this is exactly what we expect after enablement: packaging (P5) creates a composite object with new invariants, and constraints (P2) carve which joint outcome pairs are feasible. When a measurement occurs locally, staging and accounting (P4 + P6) create an irreversible record; conditionalization on that record can produce a sharp update of expectations about distant outcomes without requiring any physical propagation.
+
+The ``instantaneous influence'' appearance is therefore a mixture of (i) joint feasibility constraints and (ii) record-making plus protocol-dependent conditioning. It is not, by itself, evidence of a superluminal causal channel.
+
+\subsection{A minimal audit: no-signalling as the channel test}
+
+A minimal operational separator between ``constraint'' and ``channel'' is no-signalling: a remote marginal should not depend on a spacelike-separated setting.
+No-signalling is a criterion for the absence of a controllable communication channel; it does not, by itself, restore local causality, and Bell-nonlocal correlations can persist even in no-signalling theories \citep{brunner_2014_bell_nonlocality}.
+We capture this distinction with a minimal four-variable box model with settings $(x,y)\in\{0,1\}^2$ and outcomes $(a,b)\in\{0,1\}^2$ \citep{PopescuRohrlich1994}.
+This box model is deliberately classical and minimal; it is used to isolate the constraint-versus-channel logic, not to reproduce the full structure of quantum measurement.
+
+\paragraph{Constraint box.}
+Define $a$ uniformly at random and set $b = a \oplus g(x,y)$ for a nontrivial function $g$ (in our toy, $g(x,y)=x\wedge y$). This produces sharp conditional updates (given $a$, $b$ is determined), yet the marginal $P(b\mid x,y)$ remains uniform and independent of $x$ at fixed $y$. Conditioning produces an ``instant update'' of beliefs, but there is no signalling channel. Operationally, this is a one-time-pad structure \citep{Shannon1949}: without receiving the local record $a$ via an ordinary channel, the remote marginal at $B$ contains no information about $x$ even though conditioning on $a$ makes $b$ deterministic.
+
+\paragraph{Signalling box.}
+Define $b=x$ deterministically (with $a$ uniform). Now the marginal $P(b\mid x,y)$ depends maximally on $x$, and the box constitutes a true channel from $x$ to $b$.
+
+We quantify signalling by a max total-variation distance between remote marginals:
+\[
+\max_{y}\ \mathrm{TV}\!\left(P(b\mid x{=}0,y),\,P(b\mid x{=}1,y)\right).
+\]
+A value near $0$ indicates no-signalling (no channel); a value near $1$ indicates strong signalling.
+
+\input{tables/table_no_signalling}
+
+Table~\ref{tab:no-signalling} reports this metric and an example conditional distribution. The constraint box exhibits sharp conditionals but no signalling, while the signalling box exhibits maximal signalling. This illustrates the SBT point in the smallest possible setting: strong conditional update is not the same as causal influence.
+
+\subsection{Connecting back to time: records are local notches, translation is protocol-dependent}
+
+The stone metaphor now has a physics reading. Records are not abstract; they are staged, local carriers (P4) that incur accounting cost (P6). We use ``collapse'' here as shorthand for the birth of a macro-record and the consequent rewrite of the effective description around it (P5/P1); we do not take a stand on whether collapse is ontic or purely epistemic. Because different closures and update protocols need not commute (P3), there is no requirement that these record-updates embed into a single global time ordering---indeed, Sec.~\ref{sec:no-global-time} shows a concrete holonomy obstruction. The combination yields a coherent SBT stance: relativistic causal cones constrain channels; quantum correlations can be constraint-mediated; and the apparent instantaneous update resides in packaging and conditioning rather than in superluminal causation-time propagation.
+
+\noindent\textbf{Mechanized anchor (Lean).}
+\par
+\begin{sloppypar}\small
+A lightweight structural version of the no-signalling toy is mechanized in \texttt{lean/\allowbreak TimeWorld/\allowbreak NoSignallingToy.lean}. In particular, \texttt{marginalB\_\allowbreak uniform\_\allowbreak of\_\allowbreak xor\_\allowbreak constraint} shows the constraint-box marginal is uniform (no signalling), while \texttt{signalling\_\allowbreak marginalB\_\allowbreak depends\_\allowbreak on\_\allowbreak x} shows the signalling box marginal depends on the setting.
+\end{sloppypar}

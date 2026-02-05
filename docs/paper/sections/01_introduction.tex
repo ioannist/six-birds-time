@@ -1,0 +1,29 @@
+\section{Introduction}
+\label{sec:introduction}
+
+A stone has no time. It has mass, texture, and shape, but not ``before'' and ``after.'' Yet a stone can be made to \emph{carry} time: notch it once for each day, once for each completed task, once for each passage of a season. The stone becomes a clock only when the notches persist, when they can be counted and compared, and when the difference between ``notched'' and ``unnotched'' cannot be erased without cost. In this paper we use the stone as a metaphor for a broader claim: \emph{in the SBT lens, time is not assumed as a primitive background coordinate}; time is what you get when a layer of description can stabilize (i) an ordering of events, (ii) a measure of change, and (iii) an irreversible record that makes ``before vs.\ after'' matter.
+This is a methodological stance about layers and closures, not a denial that physical theories often parameterize dynamics with a time variable.
+
+Our framework is Six Birds Theory (SBT) \citep{sixbirds_foundations}, a small set of primitives for reasoning about emergence as the construction of closures. SBT treats layers as built, not given: each layer comes with objects (what is packaged as state), dynamics (how state updates), feasibility (what moves are allowed), staging (what persists long enough to matter), and accounting (what budgets and monotones govern maintainability). The six primitives---operator rewriting, constraints, protocol holonomy, staging, packaging, and accounting---jointly produce stable higher-level structure. A core SBT prediction is that time should be \emph{plural}: different closures induce different notions of ``next,'' different clocks, and different arrows, and there need not exist a single global time that coherently translates between them.
+
+The aim of this paper is to provide a practical, auditable SBT account of time. We do not attempt to derive physical spacetime from first principles. Instead, we ask an operational question: \emph{when does a layer have time at all, and how can we tell?} SBT suggests that ``having time'' is not a philosophical stance but an engineering fact: a layer has time if it supports stable ordering, stable ticking, and a usable arrow; it lacks time if any of these fail (e.g., clocks drift, records are not maintainable, or closure protocols conflict). This stance reframes familiar puzzles. For example, the tension between relativistic causal cones and quantum correlations often arises from conflating \emph{constraints on joint feasibility} with \emph{causal channels}. In SBT terms, many ``instantaneous influences'' are better understood as constraint-mediated correlations combined with record-making and protocol-dependent conditioning, rather than superluminal causation.
+
+\paragraph{Contributions.}
+This paper makes five contributions.
+
+\begin{itemize}
+  \item We provide a lay-to-technical SBT definition of time as a closure artifact: \emph{order + measure + arrow}, and we separate \emph{causation-time} (within-layer succession) from \emph{enablement-time} (between-layer closure birth).
+  \item We present a small finite-state laboratory that supports exact and empirical audits of time-like structure: entropy production, path-reversal KL under coarse-graining (a ``no fake arrows'' sanity check), clock viability metrics with explicit budget and maintenance costs, and constraint-carved reachability cones.
+  \item We demonstrate enablement-time as forced theory extension: a closure defect in a too-coarse lens triggers a rewrite that materially improves predictability, contrasted with a ``no birth'' control regime.
+  \item We formulate and quantify a \emph{no global time} obstruction via protocol holonomy: if time translation around a cycle has nonzero holonomy, no single global time potential can exist. We provide both a measured example and a commuting control.
+  \item We clarify the ``constraint vs.\ channel'' distinction with a no-signalling toy: sharp conditional updates can arise from joint feasibility constraints without enabling superluminal signalling. We include lightweight mechanized lemmas as structural anchors.
+\end{itemize}
+
+\paragraph{Code availability.}
+The repository for this paper is available at:
+\begin{itemize}[noitemsep,topsep=2pt]
+\item \url{https://github.com/ioannist/six-birds-time}
+\end{itemize}
+
+\paragraph{Roadmap.}
+We begin by briefly recapping the six SBT primitives and how they map onto time-like structure. We then define time as a layer-relative closure artifact and introduce the causation-time vs.\ enablement-time distinction. Next, we describe the toy universe and the audit suite used throughout the paper. We present results on arrows and coarse-graining, on clock stabilization under budget constraints (including anti-stall progress metrics), on enablement as theory rewrite, and on feasibility constraints as causal-cone carving that can both support and destroy timekeeping. We then state and demonstrate the no-global-time holonomy obstruction and connect it to a concrete ``physics dilemma'' narrative via no-signalling constraint boxes. We close with implications, limitations, and pointers to the mechanized anchors and reproducibility artifacts.
