@@ -3,6 +3,17 @@
 
 To keep the six primitives auditable, we use a deliberately small laboratory: a finite-state Markov universe in which closure choices, feasibility constraints, records, and protocol translations can all be made explicit. The goal is not physical realism but operational clarity: we can compute or estimate time-like structure (arrows, ticks, ordering, and obstructions to global time) and observe how it changes under packaging, staging, accounting, and constraints.
 
+\subsection{Methods overview}
+
+The experimental workflow proceeds as follows:
+\begin{enumerate}[nosep]
+  \item \textbf{State space.} Define the laboratory state space $Z = X \times \Phi \times R$ (environment $\times$ phase $\times$ ledger) and construct a parametric family of Markov chains over $Z$.
+  \item \textbf{Regimes.} Instantiate regimes that selectively enable or disable time-like structure: a nearly reversible \emph{null} regime (no record coupling), a \emph{driven} regime (record-coupled, with phase drive), \emph{constraint} regimes (transition masks that freeze ledger, stall phase, or remove tick states), and \emph{protocol} regimes (commuting vs.\ noncommuting coarse-graining protocols).
+  \item \textbf{Metrics and proxies.} For each regime, compute: steady-state entropy production (EP), path-reversal KL divergence ($\widehat{\Sigma}_T$) under coarse-graining lenses, clock drift/failure/progress rates, Markov prediction gap (closure defect), reachability-cone sizes, protocol holonomy ($H$), and no-signalling total-variation distance.
+  \item \textbf{Calibration.} The null regime (no record coupling, symmetric dynamics) serves as the calibration baseline; thresholds for enablement birth and arrow significance are set relative to null-regime values. Matched controls are provided for each driven or noncommuting regime.
+  \item \textbf{Evidence tables.} Each exhibit script writes a JSON/CSV artifact; a table-generation script converts artifacts to the \LaTeX\ tables presented in the Results sections. Table~\ref{tab:artifact-manifest} lists the artifact sources.
+\end{enumerate}
+
 \subsection{Toy universe: a Markov world with phase and ledger}
 
 Our shared state space is
@@ -21,7 +32,7 @@ The important feature is that $R$ plays the role of a layer-internal accounting 
 
 \subsection{Audit 1: entropy production as an arrow proxy}
 
-For a finite Markov chain with stationary distribution $\pi$, a standard steady-state time-asymmetry statistic is entropy production \citep{Schnakenberg1976,Seifert2012}:
+For a finite Markov chain with stationary distribution $\pi$, a standard steady-state time-asymmetry statistic is entropy production \citep{Schnakenberg1976,Seifert2012}, which quantifies the irreversibility of the stationary process and connects to fluctuation theorems in stochastic thermodynamics \citep{Crooks1999,Jarzynski1997,Esposito2010}:
 \begin{equation}
   \mathrm{EP}(P,\pi) \;=\; \sum_{i,j} \pi_i\,P_{ij}\,\log\frac{\pi_i P_{ij}}{\pi_j P_{ji}},
   \label{eq:ep}

@@ -11,6 +11,10 @@ Enablement-time is the arrow along which the \emph{theory} changes. In our labor
 
 Table~\ref{tab:enablement} shows a clean separation between two regimes. In the enablement regime, birth is triggered reliably and the defect collapses after switching to $f_1$: the layer becomes more Markovian once the missing staged variable is admitted. In the control regime, coupling is disabled and $f_0$ remains adequate: no birth occurs and the maximum defect remains below threshold. This contrast illustrates causation-time (successor structure within a fixed closure) versus enablement-time (rewriting the closure so that successor structure becomes well-defined). In SBT terms, this is operator rewriting (P1) driven by closure failure, enabled by packaging and staging choices (P5/P4): admitting the right carrier variable makes prediction and time-ordering cheap enough to maintain.
 
+\noindent\emph{Evidence (Separation~iv, enablement):} Table~\ref{tab:enablement} (birth at step~20000 with defect collapsing to~0 post-switch; no birth in control). Artifact: \texttt{exhibit\_enablement\_birth\_smoke}.
+
+\noindent\emph{Evidence (Separation~iv, holonomy):} Table~\ref{tab:holonomy} ($H = 0.50$ in noncommuting regime vs.\ $H = 0$ in commuting control). Artifact: \texttt{exhibit\_no\_global\_time\_smoke}.
+
 \subsection{Constraints carve cones and can destroy timekeeping}
 
 Constraints (P2) are feasibility statements: they carve which micro-transitions are allowed and therefore which macro influences are physically or operationally realizable. In our laboratory, constraints are implemented as transition masks that remove selected edges of the Markov chain and renormalize the remaining probabilities. We then compute reachability cones by graph search on the support: the number of states reachable within $\leq t$ steps from a fixed start state.

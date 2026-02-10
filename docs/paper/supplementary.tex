@@ -1,0 +1,140 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!70!black,
+  urlcolor=blue!80!black,
+  pdfauthor={Ioannis Tsiokos},
+  pdftitle={Supplementary Material: To Notch a Stone with Six Birds}
+}
+
+\title{Supplementary Material\\[0.5ex]
+\large To Notch a Stone with Six Birds: Time as a Theory Artifact of Order, Measure, and Arrow}
+\author{Ioannis Tsiokos}
+\date{10 February 2026}
+
+\begin{document}
+
+\maketitle
+
+\renewcommand{\thesection}{S\arabic{section}}
+
+\section{Reproducibility: regenerating artifacts and paper tables}
+\label{sec:appendix-repro}
+
+\subsection*{Environment setup}
+
+The Python package requires Python $\ge 3.9$. From the repository root:
+
+\begin{verbatim}
+cd python
+python -m venv .venv
+source .venv/bin/activate
+pip install -e .
+\end{verbatim}
+
+Dependencies are declared in \texttt{python/pyproject.toml}. The core runtime dependency is \texttt{numpy}; development dependencies include \texttt{pytest}, \texttt{ruff}, \texttt{mypy}, and \texttt{matplotlib}.
+
+\subsection*{Regenerating all artifacts}
+
+All experiments write artifacts under \texttt{artifacts/} (JSON and CSV). The recommended end-to-end regeneration sequence from the repository root is:
+
+\begin{verbatim}
+python python/scripts/run_all_exhibits_smoke.py
+\end{verbatim}
+
+This runner executes the exhibit scripts and verifies that the expected artifacts exist, including at minimum:
+
+\begin{itemize}[nosep]
+  \item \texttt{artifacts/exhibit\_dpi\_smoke/metadata.json}
+  \item \texttt{artifacts/exhibit\_clock\_budget\_smoke/metadata.json}
+  \item \texttt{artifacts/exhibit\_enablement\_birth\_smoke/metadata.json}
+  \item \texttt{artifacts/exhibit\_constraints\_cones\_smoke/metadata.json}
+  \item \texttt{artifacts/exhibit\_no\_global\_time\_smoke/metadata.json}
+  \item \texttt{artifacts/exhibit\_no\_signalling\_toy/metadata.json}
+  \item \texttt{artifacts/sweeps/sweep\_smoke/results.csv}
+  \item \texttt{artifacts/sweeps/sweep\_smoke/summary.json}
+\end{itemize}
+
+\subsection*{Regenerating paper tables}
+
+Paper tables are generated from these artifacts by:
+
+\begin{verbatim}
+python python/scripts/paper/make_paper_tables.py
+\end{verbatim}
+
+The generated tables are written to \texttt{docs/paper/tables/} and included in the manuscript via \verb|\input{tables/...}|.
+
+\subsection*{Building the PDF}
+
+After regenerating tables:
+
+\begin{verbatim}
+cd docs/paper
+latexmk -pdf -interaction=nonstopmode \
+  -halt-on-error to_notch_a_stone_with_six_birds.tex
+\end{verbatim}
+
+\subsection*{Running tests}
+
+\begin{verbatim}
+cd python && pytest
+\end{verbatim}
+
+\section{Mechanized anchors (Lean)}
+\label{sec:appendix-mechanized}
+
+We include lightweight Lean~4 formalizations as structural anchors for several claims.
+These files are intended to mechanize small algebraic skeletons cited in the narrative, not to verify the empirical audits end-to-end.
+
+\paragraph{Holonomy obstruction (no global time).}
+File: \url{lean/TimeWorld/HolonomyNoGlobalTime.lean}. Key identifiers:
+\url{triangle_sum_of_potential} and \url{no_global_potential_of_nonzero_triangle_holonomy}.
+These capture the telescoping identity for exact 1-forms and the obstruction implied by nonzero cycle sum.
+
+\paragraph{Closure descent to fixed points.}
+File: \url{lean/TimeWorld/DescentToFixpoints.lean}. Key identifiers:
+\url{map_fix_of_commute} and \url{restrictToFix}.
+These encode a basic ``descent'' fact: if an idempotent packaging map commutes with an update, then the update restricts to the packaged fixed-point subspace.
+
+\paragraph{Ledger preorder anchor.}
+File: \url{lean/TimeWorld/LedgerPreorder.lean}. Key identifiers:
+\url{ledgerPreorder} and \url{ledger_step_le_of_monotone}.
+These show how a monotone ledger induces a preorder compatible with an update rule.
+
+\paragraph{No-signalling toy anchors.}
+File: \url{lean/TimeWorld/NoSignallingToy.lean}. Key identifiers:
+\url{marginalB_uniform_of_xor_constraint} and \url{signalling_marginalB_depends_on_x}.
+These formalize, in a minimal Boolean setting, that constraint-mediated sharp conditionals do not imply a signalling channel.
+
+\section{Code map (Python)}
+\label{sec:appendix-code}
+
+The main Python components are organized under \texttt{python/src/time\_world/}:
+
+\begin{itemize}[nosep]
+  \item \texttt{model.py}: toy Markov world construction and simulation
+  \item \texttt{audits\_ep.py}: stationary distribution and entropy production
+  \item \texttt{audits\_path\_kl.py}: DPI-safe path-reversal KL estimation under lenses
+  \item \texttt{clock\_audits.py}: clock viability metrics, including progress/anti-stall rates
+  \item \texttt{enablement.py}: closure defect and forced theory extension
+  \item \texttt{constraints\_cones.py}: constraint masks and reachability cones
+  \item \texttt{holonomy.py}: protocol holonomy measurement
+  \item \texttt{no\_signalling\_toy.py}: constraint vs signalling boxes
+\end{itemize}
+
+Exhibit scripts live under \texttt{python/scripts/}. See \texttt{docs/experiments/index.md} for the internal runbook list.
+
+\end{document}

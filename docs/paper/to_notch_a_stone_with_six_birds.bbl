@@ -1,4 +1,4 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{20}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -35,12 +35,26 @@ Thomas~M. Cover and Joy~A. Thomas.
 \newblock Wiley, 2 edition, 2006.
 \newblock ISBN 978-0-471-24195-9.
 
+\bibitem[Crooks(1999)]{Crooks1999}
+Gavin~E. Crooks.
+\newblock Entropy production fluctuation theorem and the nonequilibrium work
+  relation for free energy differences.
+\newblock \emph{Physical Review E}, 60\penalty0 (3):\penalty0 2721--2726, 1999.
+\newblock \doi{10.1103/PhysRevE.60.2721}.
+
 \bibitem[Einstein(1905)]{einstein_1905}
 Albert Einstein.
 \newblock Zur elektrodynamik bewegter k{\"o}rper.
 \newblock \emph{Annalen der Physik}, 322\penalty0 (10):\penalty0 891--921,
   1905.
 \newblock \doi{10.1002/andp.19053221004}.
+
+\bibitem[Esposito and Van~den Broeck(2010)]{Esposito2010}
+Massimiliano Esposito and Christian Van~den Broeck.
+\newblock Three detailed fluctuation theorems.
+\newblock \emph{Physical Review Letters}, 104\penalty0 (9):\penalty0 090601,
+  2010.
+\newblock \doi{10.1103/PhysRevLett.104.090601}.
 
 \bibitem[Gaspard(2004)]{Gaspard2004}
 Pierre Gaspard.
@@ -50,12 +64,25 @@ Pierre Gaspard.
   599--615, 2004.
 \newblock \doi{10.1007/s10955-004-3455-1}.
 
+\bibitem[Jarzynski(1997)]{Jarzynski1997}
+Christopher Jarzynski.
+\newblock Nonequilibrium equality for free energy differences.
+\newblock \emph{Physical Review Letters}, 78\penalty0 (14):\penalty0
+  2690--2693, 1997.
+\newblock \doi{10.1103/PhysRevLett.78.2690}.
+
 \bibitem[Kullback and Leibler(1951)]{KullbackLeibler1951}
 Solomon Kullback and Richard~A. Leibler.
 \newblock On information and sufficiency.
 \newblock \emph{The Annals of Mathematical Statistics}, 22\penalty0
   (1):\penalty0 79--86, 1951.
 \newblock \doi{10.1214/aoms/1177729694}.
+
+\bibitem[Lebowitz(1993)]{Lebowitz1993}
+Joel~L. Lebowitz.
+\newblock Boltzmann's entropy and time's arrow.
+\newblock \emph{Physics Today}, 46\penalty0 (9):\penalty0 32--38, 1993.
+\newblock \doi{10.1063/1.881363}.
 
 \bibitem[Murashita et~al.(2014)Murashita, Funo, and
   Ueda]{MurashitaFunoUeda2014}

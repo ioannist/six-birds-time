@@ -9,6 +9,8 @@ We compute steady-state entropy production $\mathrm{EP}(P,\pi)$ as in Eq.~\eqref
 
 Because $\mathrm{EP}=\infty$ is common in record-coupled regimes, we also compute a regularized statistic by flooring reverse probabilities at a small $\varepsilon$ when reporting magnitudes. The regularized value is not a replacement for the raw audit; it is a reporting convenience that allows finite comparisons across regimes while retaining the qualitative distinction between ``absolutely irreversible'' and ``reversible up to noise.'' We continue to treat the raw $\infty$ vs.\ finite separation as meaningful evidence of bookkeeping irreversibility in the chosen closure.
 
+\noindent\emph{Evidence (Separation~i):} Arrow proxies $\approx 0$ in the null regime vs.\ $\mathrm{EP}=\infty$ in the record-coupled driven regime. See also Table~\ref{tab:constraints-cones} (\texttt{r\_constant} vs.\ \texttt{unconstrained}) and artifact \texttt{exhibit\_dpi\_smoke}.
+
 \subsection{Arrow audit II: path-reversal KL and ``no fake arrows''}
 
 Entropy production is a one-step arrow statistic. To audit arrow structure over longer horizons, we estimate the path-reversal KL $\Sigma_T$ in Eq.~\eqref{eq:path-kl} for $T\in\{1,3,5\}$. We then compare micro trajectories to macro trajectories obtained by applying coarse-graining lenses. Importantly, the macro KL is computed as a pushforward of the same smoothed micro path distribution, making the comparison DPI-safe: any decrease represents a true information loss under coarse-graining, not an artifact of inconsistent estimation.
@@ -21,6 +23,8 @@ Because $\widehat{\Sigma}_T$ is a finite-sample estimate based on smoothed path 
 
 This supports Claim~2 in Sec.~\ref{sec:time-as-closure}: coarse-graining can destroy arrows but should not create them. In SBT terms, the arrow is not a storytelling artifact of packaging; it is an auditable consequence of accounting plus packaging, and DPI constrains how it behaves under further packaging.
 
+\noindent\emph{Evidence (Separation~ii):} Table~\ref{tab:dpi} confirms micro $\ge$ macro for all reported horizons and lenses. Artifact: \texttt{exhibit\_dpi\_smoke}.
+
 \subsection{Clock viability is paid: budgeted stabilization and anti-stall progress metrics}
 
 To study ticks, we treat $\Phi$ as a proto-clock and define a tick event at $\Phi=0$ (Sec.~\ref{sec:methods}). We evaluate clock viability under noise while enabling an explicit maintenance and repair policy that consumes budget. The key question from the SBT perspective is: can staging (P4) plus accounting (P6) stabilize a repeatable clock in the presence of drift?
@@ -28,6 +32,8 @@ To study ticks, we treat $\Phi$ as a proto-clock and define a tick event at $\Ph
 \input{tables/table_clock_budget}
 
 Table~\ref{tab:clock-budget} shows that increasing maintenance budget materially improves clock viability: tick failure and drift drop sharply as budget increases, while maintenance spend rises. This is the signature ``clock viability is paid'' claim (Claim~3). The clock does not become reliable by declaration; it becomes reliable by spending accounting resources to keep a staged carrier near its expected successor.
+
+\noindent\emph{Evidence (Separation~iii):} Table~\ref{tab:clock-budget} shows tick failure dropping from $0.63$ to $0.01$ as budget increases from~$0$ to~$200$. Artifact: \texttt{exhibit\_clock\_budget\_smoke}.
 
 \paragraph{Why we need anti-stall metrics.}
 A subtle failure mode is that a ``clock'' can appear stable by simply failing to advance. If $\Phi$ stalls (or is constrained to remain in a narrow subset of states), drift events can become rare and tick-failure measures can appear deceptively favorable, even though the layer has lost a meaningful notion of elapsed time. For this reason, we include progress metrics: phase change rate, expected-step rate (how often $\Phi$ advances by $+1$), and tick rate. A viable clock must both \emph{persist} and \emph{progress}. In later results (Sec.~\ref{sec:results-enablement-constraints}), we show explicit constraint regimes where the expected-step rate collapses to zero while other ``stability'' metrics remain superficially benign, demonstrating that progress audits are necessary to distinguish a working clock from a stalled protocol.

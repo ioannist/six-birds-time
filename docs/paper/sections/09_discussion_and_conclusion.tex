@@ -12,7 +12,14 @@ The finite-state laboratory does not aim to be a model of spacetime. Its role is
 (v) no global time can be made concrete: measured holonomy around noncommuting protocols obstructs a global time potential.
 
 \paragraph{Limits and scope.}
-Several limitations are intentional. First, we do not claim that the laboratory's $\Phi$ is ``physical time''; it is a staged carrier used to audit when a clock can exist in a closure. Second, we do not claim that entropy production is the unique arrow; it is one audit proxy among many, selected for exactness in finite Markov worlds. Third, our enablement mechanism is deliberately simple (a thresholded closure defect). In richer systems, enablement is likely multi-scale and multi-object, with competing closures and budgets. Finally, we do not resolve foundational questions in quantum theory or relativity; we provide an SBT parsing that distinguishes feasibility constraints from causal channels and highlights the role of records and protocol dependence.
+Several limitations are intentional and should be noted explicitly.
+\begin{itemize}[nosep]
+  \item \emph{Minimal laboratory, not spacetime.} The finite-state Markov world is a controlled test-bed for auditing time-like structure in closures; it does not model physical spacetime, continuous dynamics, or quantum fields. All demonstrated separations are separations of \emph{proxies} in this minimal setting.
+  \item \emph{Proxy, not unique arrow.} Entropy production is one audit proxy among many, selected for exactness in finite Markov worlds. Other arrow measures (e.g., Landauer cost, conditional entropy rates) may be more appropriate in richer settings.
+  \item \emph{Simple enablement mechanism.} Our enablement trigger (thresholded closure defect) is deliberately simple. In richer systems, enablement is likely multi-scale and multi-object, with competing closures and budgets.
+  \item \emph{No resolution of physics foundations.} We do not resolve foundational questions in quantum theory or relativity. The no-signalling toy (Sec.~\ref{sec:physics-dilemma}) is a classical box model that isolates the constraint-versus-channel logic; it does not reproduce the full structure of quantum measurement, nor does it claim superluminal signalling or violations of known physics.
+  \item \emph{What is demonstrated vs.\ hypothesized.} The four controlled separations are demonstrated in the laboratory. Their extension to real physical, biological, or computational systems is a hypothesis that requires domain-specific instantiation and further empirical work.
+\end{itemize}
 
 \paragraph{Implications and open directions.}
 The SBT lens suggests several directions:
@@ -24,3 +31,29 @@ The SBT lens suggests several directions:
 
 \paragraph{Conclusion.}
 To notch a stone is to manufacture time: persistent marks (staging), countable equivalence classes (packaging), and costly irreversibility (accounting) together create order, measure, and arrow. Six Birds Theory provides a compact vocabulary for this manufacturing process and a set of audits that distinguish genuine time-like structure from artifacts of description. In this view, time is not one thing but many: local to layers, translated by protocols, and sometimes globally obstructed.
+
+\section*{Declarations}
+
+\paragraph{Competing interests.}
+The author declares no competing interests.
+
+\paragraph{Funding.}
+No external funding was received for this research.
+
+\paragraph{Ethics approval and consent to participate.}
+Not applicable; this study involves no human or animal participants and no personal data.
+
+\paragraph{Consent for publication.}
+Not applicable.
+
+\paragraph{Data availability.}
+All generated artifacts (JSON and CSV files) are available in the repository and in the archived release. No external datasets were used; all data are produced by the included scripts.
+
+\paragraph{Code availability.}
+Source code is available at \url{https://github.com/ioannist/six-birds-time}. A permanent archive of the submission version is deposited at Zenodo under DOI \href{https://doi.org/10.5281/zenodo.18595959}{10.5281/zenodo.18595959}.
+
+\paragraph{Author contributions.}
+I.T.\ is the sole author and was responsible for conceptualization, methodology, software development, formal analysis, writing, and visualization.
+
+\paragraph{Use of AI/LLMs.}
+LLM tools (Claude, Anthropic) were used as coding assistants for software scaffolding and manuscript formatting. All scientific content, claims, and experimental design were produced by the author. LLM outputs were reviewed and validated before inclusion.
