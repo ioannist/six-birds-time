@@ -1,0 +1,55 @@
+\section{Six Birds Theory recap: primitives and closures}
+\label{sec:six-birds-recap}
+
+This paper builds on \emph{Six Birds Theory} (SBT) \citep{sixbirds_foundations}, which proposes six interacting primitives for describing emergence as the construction of stable \emph{closures}. A ``layer'' is not assumed a priori; rather, a layer is a package of (i) what counts as state and object, (ii) what counts as an update, (iii) what moves are feasible, and (iv) what budgets and records make distinctions persist. The six primitives are the minimal operations that repeatedly appear when such layers are formed, stabilized, and translated.
+
+\paragraph{P1: Operator rewriting.}
+When a system is described at a different scale or with different packaged state, the effective update rule generally changes. Coarse-graining, memory, and renormalization rewrite the operator that advances state. P1 captures the principle that ``the law is not invariant under closure.''
+
+\paragraph{P2: Constraints (feasibility carving).}
+A layer comes with a feasible region or move set: what transitions are allowed and what can influence what. In physical language, this includes locality, conservation laws, and finite propagation constraints; in computational and biological language, it includes resource limits, wiring, and protocol admissibility. P2 asserts that causation is always conditional on feasibility.
+
+\paragraph{P3: Protocol holonomy.}
+Different ways of evolving, coarse-graining, and translating between descriptions need not commute. When two closure protocols yield different results around a loop, there is an obstruction to ``flattening'' the description into a single globally consistent perspective. P3 states that layers can exhibit path dependence: the result depends on the protocol used to transport state and records.
+
+\paragraph{P4: Staging.}
+For higher-level objects to exist and for records to be usable, some degrees of freedom must persist while others vary. Staging is timescale separation and carrier stabilization: slow variables, barriers, and protected channels that allow memory and ``ticks'' to survive noise. P4 holds that persistence is constructed, not given.
+
+\paragraph{P5: Packaging.}
+Packaging turns micro-variation into macro-objects through many-to-one representation: repeated patterns become ``the same'' object; flows become countable events. Packaging is typically lossy: many micro-histories map to the same macro-state, which introduces irreversibility at the layer unless extra side information is maintained. P5 embodies the principle that objects are quotients.
+
+\paragraph{P6: Accounting.}
+Layers are governed by budgets, ledgers, and audit functionals: maintaining structure costs something, and some quantities behave monotonically unless paid against. Accounting includes dissipation, error correction, and the accumulation of irreversible records. P6 maintains that arrows are made from monotones and that ``undoing'' is constrained by cost.
+
+\medskip
+
+\noindent
+In SBT, these primitives are not independent; they co-produce stable closure. Time, in particular, is not treated as a primitive coordinate but as a closure artifact assembled by these primitives. Table~\ref{tab:birds-to-time} summarizes how each primitive contributes to time-like structure.
+
+\vspace{0.5\baselineskip}
+\begin{table}[t]
+\centering
+\caption{Mapping the six SBT primitives to time-like structure. ``Arrow'' refers to a layer-internal directionality (irreversible bookkeeping); ``ticks'' refers to stable measurement of change; ``order'' refers to a usable before/after relation; ``global time'' refers to a single time coordinate coherent across closures.}
+\label{tab:birds-to-time}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.20\linewidth} >{\raggedright\arraybackslash}p{0.74\linewidth}}
+\toprule
+\textbf{Bird} & \textbf{Role in time (SBT lens)} \\
+\midrule
+P1: Operator rewriting &
+Changes effective rates and laws across closures; different layers induce different ``next'' operators and hence different local times. \\[2pt]
+P2: Constraints &
+Carves feasibility and influence structure (``causal cones''); determines which event orderings are physically/operationally realizable. \\[2pt]
+P3: Protocol holonomy &
+Obstructs a single global time when closure protocols do not commute; yields path-dependent time translation and nonzero holonomy around protocol loops. \\[2pt]
+P4: Staging &
+Provides persistence and timescales; enables stable carriers for records and repeatable processes that can serve as clocks. \\[2pt]
+P5: Packaging &
+Defines what counts as an event/state/tick at the layer; lossy packaging discards micro-history, producing macro-irreversibility unless side information is paid for. \\[2pt]
+P6: Accounting &
+Provides the arrow via ledger monotones (dissipation, spent budget, written records); makes reversal costly and stabilizes clock reliability through maintenance. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent
+Two immediate consequences follow. First, time is \emph{layer-relative}: each closure induces its own successor structure, tick carriers, and arrow variables. Second, a single universal time is \emph{not guaranteed}: when protocol holonomy is nontrivial (P3), ``time translation'' between layers becomes path-dependent and no global time potential exists. The remainder of the paper develops these claims and audits them in a minimal finite-state laboratory.

@@ -1,0 +1,71 @@
+\section{Time as a closure artifact}
+\label{sec:time-as-closure}
+
+SBT suggests a simple reframing: time is not a universal background parameter that must be assumed before a layer exists. Rather, time is what a layer \emph{gets} once closure succeeds. We emphasize scope: this is a claim about what a \emph{closure} must provide for a layer to support usable ``before/after,'' ticking, and an arrow. It is not a claim that coordinate time or proper time is meaningless in physics; rather, it treats ``having time'' as a layer-relative competency that can succeed or fail depending on staging, packaging, accounting, and constraints.
+
+In this section, we provide an SBT definition of time that is deliberately operational: a layer has time to the extent that it supports a stable ordering of events, a stable measure of change (ticks), and an irreversible record mechanism that makes ``before'' and ``after'' matter. We then separate two distinct temporal arrows: causation-time (within-layer) and enablement-time (between-layer).
+
+\subsection{The three ingredients: order, measure, and arrow}
+
+\paragraph{Ordering.}
+A layer supports time-ordering when it provides a stable successor relation for its packaged state. Concretely, if a layer packages a substrate state into a macro-state $y$ and provides an effective update rule (an induced operator) $L$, then the layer can speak about ``next'':
+\begin{equation}
+  y_{t+1} \approx L(y_t),
+  \label{eq:macro-successor}
+\end{equation}
+where $\approx$ allows for stochasticity, coarse-graining error, and feasibility limits. The point is not determinism; rather, the layer must provide a stable enough successor structure that ``what happens next'' is well-defined in the layer's own terms.
+
+\paragraph{Measurement (ticks).}
+Ordering alone is not yet clock time. A clock requires a \emph{repeatable} staged process that the layer can package as ``the same'' tick state. In SBT terms, ticks require (at least) staging (P4) to create persistent carriers, packaging (P5) to define tick equivalence classes, and accounting (P6) to pay for stabilization and error correction. Without P4, there is no carrier stable enough to count; without P5, there is no canonical ``same tick''; without P6, there is no reason the tick process remains reliable under noise and drift.
+
+\paragraph{Arrow (irreversible bookkeeping).}
+A layer has an arrow when it contains (or can define) an accounting variable that behaves as a monotone along typical feasible trajectories. We deliberately state this as an audit condition rather than a metaphysical claim: an arrow exists when there is a function $A$ on the layer's states such that
+\begin{equation}
+  A(y_{t+1}) \gtrsim A(y_t),
+  \label{eq:arrow-monotone}
+\end{equation}
+meaning decreases are either rare (noise-bounded), expensive to sustain, or incompatible with feasibility. The arrow is thus a property of closure under resource and record constraints. In physics, $A$ may be related to dissipation or entropy production; in computation, it may be ``work spent'' or ``log volume''; in cognition, it may be irreversible updates to memory. In all cases, the arrow is an accounting phenomenon (P6) made legible by staging (P4) and sharpened by lossy packaging (P5).
+
+As a structural formalization, a monotone ledger can be viewed as inducing an order-like relation on states compatible with an update; we mechanize this preorder construction in Lean (see \texttt{ledgerPreorder} and \texttt{ledger\_step\_le\_of\_monotone}). Likewise, one can idealize packaging as an idempotent ``normalization'' map that commutes with an update when closure succeeds; we mechanize the corresponding restriction-to-fixed-points fact (see \texttt{restrictToFix}).
+
+\medskip
+\noindent
+Taken together, \emph{time in a layer} is not a single primitive. It is the joint success of (i) a successor structure, (ii) a tick carrier, and (iii) an arrow variable. This is what the stone metaphor points to: without notches that persist (P4), are countable (P5), and cost something to erase (P6), the stone does not carry time.
+
+\subsection{Two arrows: causation-time vs enablement-time}
+
+SBT distinguishes two different senses in which ``things change over time.'' They are often conflated, but they live at different logical levels.
+
+\paragraph{Causation-time (within-layer).}
+Fix a layer: the packaged state space $Y$, the effective dynamics $L$, feasibility constraints $\mathcal{F}$, and accounting/budget conditions $B$. Then causation-time is simply the layer's successor parameter $t$ in Eq.~\eqref{eq:macro-successor}. This is the familiar regime of scientific models: given the variables and laws, we ask what happens next. In this regime, causal influence is constrained by feasibility (P2): causal structure is not merely statistical dependence but dependence compatible with allowed interventions and feasible transitions.
+
+\paragraph{Enablement-time (between layers).}
+Layers themselves can change. A system may enter a regime in which the current closure no longer supports stable ordering, ticks, or arrows---or in which a new closure becomes maintainable, producing new objects and new causal variables. We call this enablement-time: the arrow along which the \emph{theory} (closure) is rewritten. Informally,
+\begin{equation}
+  \mathcal{T}_{t+1} = \mathrm{Birth/Rewrite}(\mathcal{T}_t;\ \text{history}),
+  \label{eq:enablement-rewrite}
+\end{equation}
+where $\mathcal{T}$ denotes the layer package (packaging map, induced dynamics, constraints, staging/records). Enablement is not ``a weak kind of cause'': it changes the space in which causes can be expressed. In a causal model, enablement rewrites the node set; it creates new actors (via packaging), new invariants (via constraints), and new stable carriers (via staging) that then support ordinary within-layer causation.
+
+\paragraph{A diagnostic: does the variable set change?}
+A practical SBT diagnostic: if the same variable set supports a consistent intervention semantics and successor structure, we are in causation-time. If the variable set itself must change for closure to succeed---new macro-variables become necessary, old ones become meaningless, or prediction requires new staged memory---we are observing enablement.
+
+\subsection{Theorem-like claims (informal) that we will audit}
+
+The rest of the paper treats the claims below as \emph{auditable} rather than assumed. We state them informally here and test them in a minimal finite-state laboratory.
+
+\paragraph{Claim 1 (Arrow-of-time from packaging and accounting).}
+Lossy packaging (P5) together with an accounting ledger (P6) generically produces a directional audit variable at the layer: macro-dynamics becomes effectively irreversible unless extra side information is maintained (which itself costs budget).
+
+\paragraph{Claim 2 (No fake arrows under coarse-graining).}
+Coarse-graining can discard information but cannot create irreversibility from nothing. In an audit sense, projected arrow metrics (e.g.\ path-reversal KL) should not exceed the micro arrow when computed consistently. This is a data-processing sanity check for ``arrow'' claims.
+
+\paragraph{Claim 3 (Clock viability is paid).}
+Reliable ticks require staged carriers and maintenance. As noise increases, clocks drift and fail unless stabilized by spending budget (P6); and ``apparent stability'' can be illusory if the protocol stalls rather than ticks, hence viability must include progress metrics.
+
+\paragraph{Claim 4 (No global time under protocol holonomy).}
+When closure protocols do not commute (P3), there need not exist a single global time coordinate consistent with all protocol translations. Time translation becomes path-dependent, and nonzero holonomy around a loop obstructs a global potential. We will demonstrate this quantitatively and provide a mechanized structural lemma.
+
+\medskip
+\noindent
+To make these claims concrete, we now introduce a toy universe in which the six primitives can be exercised explicitly and the above properties can be audited numerically (and, in small structural form, mechanized).

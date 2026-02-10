@@ -1,0 +1,101 @@
+\section{Methods: a finite-state laboratory and audit suite}
+\label{sec:methods}
+
+To keep the six primitives auditable, we use a deliberately small laboratory: a finite-state Markov universe in which closure choices, feasibility constraints, records, and protocol translations can all be made explicit. The goal is not physical realism but operational clarity: we can compute or estimate time-like structure (arrows, ticks, ordering, and obstructions to global time) and observe how it changes under packaging, staging, accounting, and constraints.
+
+\subsection{Toy universe: a Markov world with phase and ledger}
+
+Our shared state space is
+\begin{equation}
+  Z = X \times \Phi \times R,
+  \label{eq:toy-world}
+\end{equation}
+where:
+(i) $X$ is a small ``environment'' variable (finite, typically $|X|\in\{2,3,4\}$),
+(ii) $\Phi$ is a cyclic phase variable (a proto-clock, typically $|\Phi|=8$),
+and (iii) $R$ is a finite ledger (a bounded counter, typically $|R|\in\{1,8,16\}$).
+The microdynamics is a Markov chain with transition matrix $P$ over $Z$ \citep{Norris1997}. We provide several control parameters that allow us to introduce or remove time-like structure:
+a phase drive that biases $\Phi$ to advance, phase noise that causes slips, record coupling that increments $R$ in response to events, optional bounded backsliding, and optional constraint masks that gate transitions (P2).
+
+The important feature is that $R$ plays the role of a layer-internal accounting variable (P6): it can represent spent budget, written records, wear, or any monotone-ish ledger. $\Phi$ plays the role of a staged protocol carrier (P4): it can behave like a clock only if it is stable enough and if its progress is not an artifact of stalling.
+
+\subsection{Audit 1: entropy production as an arrow proxy}
+
+For a finite Markov chain with stationary distribution $\pi$, a standard steady-state time-asymmetry statistic is entropy production \citep{Schnakenberg1976,Seifert2012}:
+\begin{equation}
+  \mathrm{EP}(P,\pi) \;=\; \sum_{i,j} \pi_i\,P_{ij}\,\log\frac{\pi_i P_{ij}}{\pi_j P_{ji}},
+  \label{eq:ep}
+\end{equation}
+where the summand is interpreted as $0$ when $\pi_i P_{ij}=0$ and as $+\infty$ when $\pi_i P_{ij}>0$ but $\pi_j P_{ji}=0$ (support mismatch / absolute irreversibility \citep{MurashitaFunoUeda2014}). In steady state ($\pi P=\pi$), Eq.~\eqref{eq:ep} is equivalent to the simpler form $\sum_{i,j}\pi_i P_{ij}\log(P_{ij}/P_{ji})$; we present the stationary-flow form because it makes the meaning of $\mathrm{EP}=\infty$ explicit. In this paper we use $\mathrm{EP}$ as an informational arrow proxy (a bookkeeping asymmetry audit), not as a claim of physical thermodynamic entropy without additional modeling assumptions.
+
+Because $\mathrm{EP}=\infty$ is common in record-coupled regimes, we also report a finite surrogate $\mathrm{EP}_{\varepsilon}$ by flooring reverse stationary flows at a small $\varepsilon$ when needed for magnitude comparisons; the raw ``infinite vs.\ finite'' distinction remains the primary audit signal.
+
+\subsection{Audit 2: path-reversal KL and ``no fake arrows'' under coarse-graining}
+
+Entropy production is a one-step statistic. To audit arrow structure over horizons, we estimate a path-reversal KL divergence \citep{KullbackLeibler1951}:
+\begin{equation}
+  \Sigma_T \;=\; D_{\mathrm{KL}}\!\left(P(z_{0:T})\;\|\;P(z_{T:0})\right),
+  \label{eq:path-kl}
+\end{equation}
+where $z_{0:T}$ denotes a length-$T$ trajectory and $z_{T:0}$ its time-reversal. We estimate $\widehat{\Sigma}_T$ from simulated trajectories using smoothed empirical path frequencies with a symmetric Dirichlet prior of fixed total pseudocount mass (distributed across the observed support and its reverses), and compute macro versions by pushing the same smoothed micro path distribution through a lens (coarse-graining map). This ensures a data-processing (DPI) safe comparison \citep{CoverThomas2006}: under a lens $f:Z\to Y$,
+\begin{equation}
+D_{\mathrm{KL}}(P\|Q)\ \ge\ D_{\mathrm{KL}}(f_{\#}P\ \|\ f_{\#}Q),
+\label{eq:dpi-kl}
+\end{equation}
+so that the projected arrow should not exceed the micro arrow when computed consistently. In the exact stationary Markov case (without smoothing), the path-reversal KL can be related to the steady-state arrow rate \citep{Gaspard2004}; here we use $\widehat{\Sigma}_T$ primarily as a comparative audit at fixed small horizons under matched controls. In the paper tables, we report $\widehat{\Sigma}_T$ for a few small $T$ and for several lenses, including lenses that discard the ledger $R$ or the phase $\Phi$.
+
+This audit corresponds to packaging (P5) and the ``no fake arrows'' claim: coarse-graining can discard irreversibility, but should not manufacture it.
+
+\subsection{Audit 3: clock viability (drift, failure, and anti-stall progress)}
+
+We treat $\Phi$ as a proto-clock carrier and define a \emph{tick} event when $\Phi=0$. A clock is viable only if (i) ticks occur at a stable rate, (ii) the tick process has low drift and low failure, and (iii) stability is not achieved by stalling (``nothing moves'').
+
+We compute:
+(i) tick interval variance (variance of the step counts between consecutive ticks),
+(ii) tick failure rate (fraction of tick-to-tick cycles that contain a drift event),
+(iii) drift rate (drift events per 1000 steps),
+and (iv) explicit budget and maintenance expenditure when a repair policy is enabled. Our repair policy is intentionally simple: if a phase transition deviates from the expected successor, a limited budget can ``snap'' $\Phi$ back to the expected value, consuming ledger.
+
+To prevent the false conclusion that a stalled protocol is a good clock, we also report progress metrics:
+the phase change rate, the expected-step rate (how often $\Phi$ advances by $+1$), and the tick rate. A clock that never advances can have low drift while being useless; progress metrics detect this failure mode. This audit corresponds to staging (P4) and accounting (P6): ticks are stabilized by spending budget, and clock viability must be paid for.
+
+\subsection{Audit 4: enablement as forced theory extension}
+
+Enablement-time is implemented as a closure rewrite driven by a defect in predictive closure. We begin with a coarse lens $f_0$ that omits $\Phi$ (too few variables) and monitor a memory or closure defect via a Markov prediction gap:
+we compare the negative log-likelihood (NLL) of a first-order Markov predictor to a second-order predictor on macro sequences. The raw defect is
+\begin{equation}
+  \mathrm{gap}_{\mathrm{raw}} = \mathrm{NLL}_1 - \mathrm{NLL}_2,
+  \label{eq:gap-raw}
+\end{equation}
+and we report a nonnegative defect $\mathrm{gap}=\max(\mathrm{gap}_{\mathrm{raw}},0)$ for interpretability. When $\mathrm{gap}$ exceeds a threshold, we ``birth'' a richer theory by switching to a lens $f_1$ that includes $\Phi$. We report the birth step and the defect before and after the switch. We also include a ``no birth'' control regime where coupling is disabled and the coarse lens remains adequate.
+
+This audit corresponds to operator rewriting (P1) and packaging/staging (P5/P4): new variables (and thus new notions of time) become necessary and maintainable.
+
+\subsection{Audit 5: constraints and reachability cones}
+
+To model feasibility carving (P2), we apply constraint masks that remove selected transitions and then renormalize remaining probabilities. We report reachability cones by computing the number of states reachable within $\leq t$ steps from a fixed start state for $t=1,\dots,10$. Constraints can sharply alter cone growth and can destroy timekeeping: they can freeze the ledger, stall phase progress, or (in an extreme case) eliminate tick states entirely, rendering clock time unreadable.
+
+\subsection{Audit 6: no global time via protocol holonomy}
+
+To test the ``no global time'' claim (P3), we define multiple closure protocols that induce different local clock readings and measure time-translation increments between them. If the sum of increments around a protocol loop is nonzero (holonomy), no single global time potential can be consistent with all pairwise translations. We demonstrate this quantitatively with a small protocol cycle and provide a commuting control regime with near-zero holonomy. The formal obstruction is anchored by a lightweight mechanized lemma (see the Lean appendix pointers).
+
+\subsection{Audit 7: constraint boxes vs signalling channels (no-signalling toy)}
+
+Finally, we include a minimal four-variable ``box'' model with settings $(x,y)\in\{0,1\}^2$ and outcomes $(a,b)\in\{0,1\}^2$. A constraint-mediated box can produce sharp conditional updates (``given $a$, $b$ is determined'') while remaining no-signalling: the marginal distribution of $b$ at fixed $y$ is invariant to the remote setting $x$. We quantify this using the maximum total-variation (TV) distance between $P(b\mid x=0,y)$ and $P(b\mid x=1,y)$ over $y$. We contrast this with a true signalling box in which the $b$ marginal depends on $x$. This exhibit supports the SBT diagnosis that nonlocal joint constraints need not constitute superluminal causal channels; the ``instant update'' can be record-making and conditioning rather than within-layer causal propagation.
+
+\subsection{Reproducibility and auto-generated paper tables}
+
+Each exhibit script writes a small artifact (JSON or CSV) under \texttt{artifacts/}. A single runner regenerates the full suite:
+\begin{quote}
+\texttt{python python/scripts/run\_all\_exhibits\_smoke.py}
+\end{quote}
+Paper tables are auto-generated from these artifacts:
+\begin{quote}
+\texttt{python python/scripts/paper/make\_paper\_tables.py}
+\end{quote}
+To keep the manuscript synchronized with audited results, the tables used throughout the Results sections are generated automatically from the current artifact set. Table~\ref{tab:artifact-manifest} provides a manifest of which artifact sources were detected at build time.
+
+\input{tables/table_manifest}
+
+\noindent
+The remaining auto-generated tables are included inline in the Results sections where they are discussed.
