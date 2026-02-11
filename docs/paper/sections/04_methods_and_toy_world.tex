@@ -28,7 +28,7 @@ and (iii) $R$ is a finite ledger (a bounded counter, typically $|R|\in\{1,8,16\}
 The microdynamics is a Markov chain with transition matrix $P$ over $Z$ \citep{Norris1997}. We provide several control parameters that allow us to introduce or remove time-like structure:
 a phase drive that biases $\Phi$ to advance, phase noise that causes slips, record coupling that increments $R$ in response to events, optional bounded backsliding, and optional constraint masks that gate transitions (P2).
 
-The important feature is that $R$ plays the role of a layer-internal accounting variable (P6): it can represent spent budget, written records, wear, or any monotone-ish ledger. $\Phi$ plays the role of a staged protocol carrier (P4): it can behave like a clock only if it is stable enough and if its progress is not an artifact of stalling.
+The important feature is that $R$ plays the role of a layer-internal accounting variable (P6): it can represent spent budget, written records, wear, or any approximately monotone ledger. $\Phi$ plays the role of a staged protocol carrier (P4): it can behave like a clock only if it is stable enough and if its progress is not an artifact of stalling.
 
 \subsection{Audit 1: entropy production as an arrow proxy}
 
@@ -43,12 +43,12 @@ Because $\mathrm{EP}=\infty$ is common in record-coupled regimes, we also report
 
 \subsection{Audit 2: path-reversal KL and ``no fake arrows'' under coarse-graining}
 
-Entropy production is a one-step statistic. To audit arrow structure over horizons, we estimate a path-reversal KL divergence \citep{KullbackLeibler1951}:
+Entropy production is a one-step statistic. To audit arrow structure over horizons, we estimate a path-reversal Kullback--Leibler (KL) divergence \citep{KullbackLeibler1951}:
 \begin{equation}
   \Sigma_T \;=\; D_{\mathrm{KL}}\!\left(P(z_{0:T})\;\|\;P(z_{T:0})\right),
   \label{eq:path-kl}
 \end{equation}
-where $z_{0:T}$ denotes a length-$T$ trajectory and $z_{T:0}$ its time-reversal. We estimate $\widehat{\Sigma}_T$ from simulated trajectories using smoothed empirical path frequencies with a symmetric Dirichlet prior of fixed total pseudocount mass (distributed across the observed support and its reverses), and compute macro versions by pushing the same smoothed micro path distribution through a lens (coarse-graining map). This ensures a data-processing (DPI) safe comparison \citep{CoverThomas2006}: under a lens $f:Z\to Y$,
+where $z_{0:T}$ denotes a length-$T$ trajectory and $z_{T:0}$ its time-reversal. We estimate $\widehat{\Sigma}_T$ from simulated trajectories using smoothed empirical path frequencies with a symmetric Dirichlet prior of fixed total pseudocount mass (distributed across the observed support and its reverses), and compute macro versions by pushing the same smoothed micro path distribution through a lens (coarse-graining map). This ensures a data-processing inequality (DPI)-safe comparison \citep{CoverThomas2006}: under a lens $f:Z\to Y$,
 \begin{equation}
 D_{\mathrm{KL}}(P\|Q)\ \ge\ D_{\mathrm{KL}}(f_{\#}P\ \|\ f_{\#}Q),
 \label{eq:dpi-kl}

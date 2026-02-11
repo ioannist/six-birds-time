@@ -3,44 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: to_notch_a_stone_with_six_birds.aux
 The style file: plainnat.bst
 Database file #1: references.bib
-You've used 16 entries,
+You've used 20 entries,
             2773 wiz_defined-function locations,
-            727 strings with 7522 characters,
-and the built_in function-call counts, 6690 in all, are:
-= -- 634
-> -- 273
-< -- 14
-+ -- 97
-- -- 81
-* -- 524
-:= -- 1047
-add.period$ -- 65
-call.type$ -- 16
-change.case$ -- 74
-chr.to.int$ -- 16
-cite$ -- 32
-duplicate$ -- 317
-empty$ -- 603
-format.name$ -- 107
-if$ -- 1396
+            761 strings with 8133 characters,
+and the built_in function-call counts, 8371 in all, are:
+= -- 801
+> -- 324
+< -- 18
++ -- 116
+- -- 96
+* -- 656
+:= -- 1304
+add.period$ -- 81
+call.type$ -- 20
+change.case$ -- 91
+chr.to.int$ -- 20
+cite$ -- 40
+duplicate$ -- 397
+empty$ -- 764
+format.name$ -- 128
+if$ -- 1750
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 18
-newline$ -- 105
-num.names$ -- 64
-pop$ -- 129
+missing$ -- 22
+newline$ -- 129
+num.names$ -- 80
+pop$ -- 154
 preamble$ -- 1
-purify$ -- 59
+purify$ -- 72
 quote$ -- 0
-skip$ -- 226
+skip$ -- 281
 stack$ -- 0
-substring$ -- 296
-swap$ -- 17
+substring$ -- 403
+swap$ -- 21
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 161
+type$ -- 205
 warning$ -- 0
-while$ -- 69
+while$ -- 88
 width$ -- 0
-write$ -- 247
+write$ -- 307
