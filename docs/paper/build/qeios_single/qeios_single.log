@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.2.2)  12 FEB 2026 11:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.2.2)  12 FEB 2026 11:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**to_notch_a_stone_with_six_birds.tex
-(./to_notch_a_stone_with_six_birds.tex
+**qeios_single.tex
+(./qeios_single.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -791,8 +791,8 @@ Package caption Info: hyperref package is loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/xurl/xurl.sty
 Package: xurl 2022/01/09 v 0.10 modify URL breaks
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 33.
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 33.
+Package hyperref Info: Option `colorlinks' set `true' on input line 34.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 34.
 
 (/usr/share/texlive/texmf-dist/tex/latex/cleveref/cleveref.sty
 Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
@@ -821,7 +821,7 @@ LaTeX Info: Redefining \cite on input line 694.
 \c@lemma=\count329
 \c@corollary=\count330
 \c@remark=\count331
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 76
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 73
 .
 
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
@@ -832,39 +832,39 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count332
 \l__pdf_internal_box=\box70
 )
-(./to_notch_a_stone_with_six_birds.aux)
-\openout1 = `to_notch_a_stone_with_six_birds.aux'.
+(./qeios_single.aux)
+\openout1 = `qeios_single.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Info: Redefining \microtypecontext on input line 76.
-Package microtype Info: Applying patch `item' on input line 76.
-Package microtype Info: Applying patch `toc' on input line 76.
-Package microtype Info: Applying patch `eqnum' on input line 76.
-Package microtype Info: Applying patch `footnote' on input line 76.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Info: Redefining \microtypecontext on input line 73.
+Package microtype Info: Applying patch `item' on input line 73.
+Package microtype Info: Applying patch `toc' on input line 73.
+Package microtype Info: Applying patch `eqnum' on input line 73.
+Package microtype Info: Applying patch `footnote' on input line 73.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 76.
+LaTeX Info: Redefining \showhyphens on input line 73.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -895,7 +895,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring ON on input line 76.
+Package hyperref Info: Link coloring ON on input line 73.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -908,13 +908,14 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count339
 )
-LaTeX Info: Redefining \ref on input line 76.
-LaTeX Info: Redefining \pageref on input line 76.
-LaTeX Info: Redefining \nameref on input line 76.
+LaTeX Info: Redefining \ref on input line 73.
+LaTeX Info: Redefining \pageref on input line 73.
+LaTeX Info: Redefining \nameref on input line 73.
 
-(./to_notch_a_stone_with_six_birds.out) (./to_notch_a_stone_with_six_birds.out)
+(./qeios_single.out) (./qeios_single.out)
 \@outlinefile=\write4
-\openout4 = `to_notch_a_stone_with_six_birds.out'.
+\openout4 = `qeios_single.out'.
+
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -953,35 +954,35 @@ LaTeX Info: Redefining \nameref on input line 76.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 7
-9.
+6.
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 7
-9.
+6.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-79.
+76.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-79.
+76.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 79.
+(Font)              <12> on input line 76.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 79.
+(Font)              <8> on input line 76.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 79.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 79.
+(Font)              <6> on input line 76.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 76.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -990,7 +991,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 79.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 76.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -999,16 +1000,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-(./sections/00_abstract.tex
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 1.
+(Font)              <10> on input line 80.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 1.
+(Font)              <7> on input line 80.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 1.
-) (./sections/01_introduction.tex
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 6
-.
+(Font)              <5> on input line 80.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 8
+9.
 
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1017,8 +1016,8 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 6
-.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 8
+9.
 
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1026,44 +1025,33 @@ File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 25.
-) (./sections/02_six_birds_recap.tex [3])
-(./sections/03_time_as_closure.tex [4] [5] [6])
-(./sections/04_methods_and_toy_world.tex [7] [8] [9]
-(./tables/table_manifest.tex)) (./sections/05_results_arrow_and_clocks.tex
-[10] (./tables/table_dpi.tex) [11] (./tables/table_clock_budget.tex
-Overfull \hbox (0.8719pt too wide) in paragraph at lines 6--15
+(Font)              <10.95> on input line 108.
+ [3] [4] [5] [6] [7] [8] [9] [10] [11]
+Overfull \hbox (0.8719pt too wide) in paragraph at lines 416--425
  [][] 
  []
 
-)) (./sections/06_results_enablement_and_constraints.tex [12]
-(./tables/table_enablement.tex) (./tables/table_constraints_cones.tex
+[12]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 7.
-) [13])
-(./sections/07_no_global_time.tex [14] (./tables/table_holonomy.tex))
-(./sections/08_physics_dilemma_no_signalling.tex [15] [16]
-(./tables/table_no_signalling.tex)
-Underfull \hbox (badness 1742) in paragraph at lines 44--45
+(Font)              <9> on input line 471.
+ [13] [14] [15] [16]
+Underfull \hbox (badness 1742) in paragraph at lines 616--617
 []\T1/lmr/m/n/10 (+20) A lightweight struc-tural ver-sion of the no-signalling 
 toy is mech-a-nized in \T1/lmtt/m/n/10 lean/TimeWorld/
  []
 
-) (./sections/09_discussion_and_conclusion.tex [17] [18])
-(./sections/10_appendices.tex [19] [20]) (./to_notch_a_stone_with_six_birds.bbl
-[21]) [22] (./to_notch_a_stone_with_six_birds.aux)
-Package rerunfilecheck Info: File `to_notch_a_stone_with_six_birds.out' has not
- changed.
+[17] [18] [19] [20] [21] [22] (./qeios_single.aux)
+Package rerunfilecheck Info: File `qeios_single.out' has not changed.
 (rerunfilecheck)             Checksum: 0F3415E8385246145729C4B41D257F97;11990.
  ) 
 Here is how much of TeX's memory you used:
- 28704 strings out of 480247
- 540089 string characters out of 5896152
- 833604 words of memory out of 5000000
- 45647 multiletter control sequences out of 15000+600000
- 562921 words of font info for 243 fonts, out of 8000000 for 9000
+ 28586 strings out of 480247
+ 535947 string characters out of 5896152
+ 833547 words of memory out of 5000000
+ 45591 multiletter control sequences out of 15000+600000
+ 562838 words of font info for 242 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 99i,12n,94p,2449b,845s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 99i,12n,94p,2401b,845s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
 ips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share
 /texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
@@ -1079,8 +1067,7 @@ onts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.
 pfb></usr/share/texmf/fonts/type1/public/lm/lmtt8.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on to_notch_a_stone_with_six_birds.pdf (22 pages, 422733 bytes).
-
+Output written on qeios_single.pdf (22 pages, 422538 bytes).
 PDF statistics:
  583 PDF objects out of 1000 (max. 8388607)
  517 compressed objects within 6 object streams

@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex to_notch_a_stone_with_six_birds"] 1770747243 "to_notch_a_stone_with_six_birds.aux" "to_notch_a_stone_with_six_birds.bbl" "to_notch_a_stone_with_six_birds" 1770816924
+["bibtex to_notch_a_stone_with_six_birds"] 1770894894 "to_notch_a_stone_with_six_birds.aux" "to_notch_a_stone_with_six_birds.bbl" "to_notch_a_stone_with_six_birds" 1770894895
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
   "references.bib" 1770730740 6154 366a6c35bee130ff5bce15afa3bc4568 ""
-  "to_notch_a_stone_with_six_birds.aux" 1770816924 18485 4b5a9d773ca65d0ce7bd42d0104ddb13 "pdflatex"
+  "to_notch_a_stone_with_six_birds.aux" 1770894894 19758 9c961a2c319e15ea5eda7d82fc8c51da "pdflatex"
   (generated)
   "to_notch_a_stone_with_six_birds.bbl"
   "to_notch_a_stone_with_six_birds.blg"
-["pdflatex"] 1770816924 "to_notch_a_stone_with_six_birds.tex" "to_notch_a_stone_with_six_birds.pdf" "to_notch_a_stone_with_six_birds" 1770816924
+["pdflatex"] 1770894894 "to_notch_a_stone_with_six_birds.tex" "to_notch_a_stone_with_six_birds.pdf" "to_notch_a_stone_with_six_birds" 1770894895
   "/etc/texmf/web2c/texmf.cnf" 1768821459 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1095.tfm" 1136768653 3584 929cdff2b7a8c11bd4d49fd68cb0ae70 ""
@@ -240,10 +240,10 @@
   "sections/04_methods_and_toy_world.tex" 1770733438 11851 91080446259d7e22cc5a067ccc73e25c ""
   "sections/05_results_arrow_and_clocks.tex" 1770730908 6342 76622423610987a852f19e3761ea952a ""
   "sections/06_results_enablement_and_constraints.tex" 1770730921 5156 6ce15aba514974dad0ba7d6add4389d2 ""
-  "sections/07_no_global_time.tex" 1770731060 5634 c84e1121dbfafd895fdc2d9446b80ae4 ""
+  "sections/07_no_global_time.tex" 1770894881 5647 5bd9e9d90afe984c431387e5a68d56d6 ""
   "sections/08_physics_dilemma_no_signalling.tex" 1770299205 6130 d8fa35ae540bacfd4f64a63f8f04f47a ""
-  "sections/09_discussion_and_conclusion.tex" 1770733447 6369 691954d333374a2e6627582af2cce4ec ""
-  "sections/10_appendices.tex" 1770730967 421 4d526c57e0d905f3f03c5cd9f660a7f9 ""
+  "sections/09_discussion_and_conclusion.tex" 1770894798 7515 1dff527eb5971e506a9db4e84e139655 ""
+  "sections/10_appendices.tex" 1770894826 4512 69dab969752000402ef1238bf3f3c118 ""
   "tables/table_clock_budget.tex" 1770299434 445 b6fd886d5b5c1e59b577e4a2effebfe1 ""
   "tables/table_constraints_cones.tex" 1770299434 735 fe2c5c4cb4bbce581db40a78cf51c577 ""
   "tables/table_dpi.tex" 1770299434 456 85709eea4e55730881d1c4841d5e87f8 ""
@@ -251,10 +251,10 @@
   "tables/table_holonomy.tex" 1770299434 292 1024e27431c51c7e020591a1dfed593f ""
   "tables/table_manifest.tex" 1770299434 654 423fe22838d6ee074c814fa313bf88cf ""
   "tables/table_no_signalling.tex" 1770299434 413 7f87065ef36e20f1d147a2dd61305be3 ""
-  "to_notch_a_stone_with_six_birds.aux" 1770816924 18485 4b5a9d773ca65d0ce7bd42d0104ddb13 "pdflatex"
-  "to_notch_a_stone_with_six_birds.bbl" 1770747243 5617 f7f365ea73880eda19d5417d4abc5577 "bibtex to_notch_a_stone_with_six_birds"
-  "to_notch_a_stone_with_six_birds.out" 1770816924 11287 943c1aa99fa8fa51e239c128bd88d249 "pdflatex"
-  "to_notch_a_stone_with_six_birds.tex" 1770816918 3168 2c0645f0e8a289adadb865f1d08e1624 ""
+  "to_notch_a_stone_with_six_birds.aux" 1770894894 19758 9c961a2c319e15ea5eda7d82fc8c51da "pdflatex"
+  "to_notch_a_stone_with_six_birds.bbl" 1770894894 5617 f7f365ea73880eda19d5417d4abc5577 "bibtex to_notch_a_stone_with_six_birds"
+  "to_notch_a_stone_with_six_birds.out" 1770894894 11990 0f3415e8385246145729c4b41d257f97 "pdflatex"
+  "to_notch_a_stone_with_six_birds.tex" 1770894847 3089 fbda9fabd7786479f866783bbfafbb59 ""
   (generated)
   "to_notch_a_stone_with_six_birds.aux"
   "to_notch_a_stone_with_six_birds.log"

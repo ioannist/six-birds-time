@@ -1,0 +1,31 @@
+\section{Results II: enablement and constraints}
+\label{sec:results-enablement-constraints}
+
+Results~I audited two components of time-as-closure: arrow structure and viable ticks. We now turn to the remaining two pillars emphasized by SBT: (i) \emph{enablement-time}, where the closure itself is rewritten to restore predictive closure, and (ii) \emph{constraints} (P2), which carve feasibility and influence structure and can both support and destroy timekeeping. Both topics highlight that ``having time'' is conditional---conditional on a closure that closes and on feasibility that allows the relevant carriers and records to exist.
+
+\subsection{Enablement births time: forced theory extension with a no-birth control}
+
+Enablement-time is the arrow along which the \emph{theory} changes. In our laboratory, we operationalize this as follows: we begin with a coarse lens $f_0$ that omits the phase variable $\Phi$ and monitor a memory or closure defect using a Markov prediction gap (Sec.~\ref{sec:methods}). When the nonnegative defect $\mathrm{gap}$ exceeds a threshold, we ``birth'' a richer theory by switching to a lens $f_1$ that includes $\Phi$. We interpret this as an enablement event: the variable set is rewritten so that a stable successor structure (and thus a usable within-layer time) becomes available.
+
+\input{tables/table_enablement}
+
+Table~\ref{tab:enablement} shows a clean separation between two regimes. In the enablement regime, birth is triggered reliably and the defect collapses after switching to $f_1$: the layer becomes more Markovian once the missing staged variable is admitted. In the control regime, coupling is disabled and $f_0$ remains adequate: no birth occurs and the maximum defect remains below threshold. This contrast illustrates causation-time (successor structure within a fixed closure) versus enablement-time (rewriting the closure so that successor structure becomes well-defined). In SBT terms, this is operator rewriting (P1) driven by closure failure, enabled by packaging and staging choices (P5/P4): admitting the right carrier variable makes prediction and time-ordering cheap enough to maintain.
+
+\noindent\emph{Evidence (Separation~iv, enablement):} Table~\ref{tab:enablement} (birth at step~20000 with defect collapsing to~0 post-switch; no birth in control). Artifact: \texttt{exhibit\_enablement\_birth\_smoke}.
+
+\noindent\emph{Evidence (Separation~iv, holonomy):} Table~\ref{tab:holonomy} ($H = 0.50$ in noncommuting regime vs.\ $H = 0$ in commuting control). Artifact: \texttt{exhibit\_no\_global\_time\_smoke}.
+
+\subsection{Constraints carve cones and can destroy timekeeping}
+
+Constraints (P2) are feasibility statements: they carve which micro-transitions are allowed and therefore which macro influences are physically or operationally realizable. In our laboratory, constraints are implemented as transition masks that remove selected edges of the Markov chain and renormalize the remaining probabilities. We then compute reachability cones by graph search on the support: the number of states reachable within $\leq t$ steps from a fixed start state.
+
+\input{tables/table_constraints_cones}
+
+Table~\ref{tab:constraints-cones} shows that constraints produce nontrivial and regime-specific cone growth: different feasibility rules yield different reachable-set sizes at both short and longer horizons. Constraints also reshape arrow metrics and clock viability. Freezing the ledger component (the \texttt{r\_constant} regime) reduces entropy production relative to the unconstrained record-driven regime, reflecting the fact that bookkeeping irreversibility is coupled to the ability to update the ledger. Restricting phase motion (the \texttt{phi\_forbid\_pm1} regime) can collapse the expected-step rate to zero: the protocol no longer advances as a proper clock even if other stability metrics appear favorable.
+
+\paragraph{Tick disappearance and undefined tick failure.}
+The \texttt{phi\_no\_ticks} regime provides an extreme but instructive failure mode: the constraint forbids transitions into the tick state ($\Phi=0$). As a result, the tick rate collapses to zero. In such a regime, the notion of ``tick failure rate'' becomes undefined because there are no tick-to-tick cycles to evaluate; we therefore report tick failure as ``--'' and record the number of seeds and runs in which the metric is undefined. This is not a numerical bug but rather the correct audit outcome: the layer has lost the ability to represent elapsed time in tick units because the clock's distinguished states are not feasible under the constraints.
+
+\medskip
+\noindent
+Together, these results reinforce the SBT view that time is conditional on closure and feasibility. Enablement events rewrite the closure so that a usable successor structure and staged clock carriers exist. Constraints carve influence cones and can destroy timekeeping by stalling progress, freezing accounting updates, or eliminating tick states entirely. In the next section, we turn to a deeper consequence of plural closure: when protocols do not commute, there need not exist a single global time consistent across translations.
